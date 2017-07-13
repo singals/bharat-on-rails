@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @article.name %>
+</p>
+
+<p>
+  <strong>Package quantity:</strong>
+  <%= @article.package_quantity %>
+</p>
+
+<p>
+  <strong>Availabe units:</strong>
+  <%= @article.availabe_units %>
+</p>
+
+<p>
+  <strong>Mrp:</strong>
+  <%= @article.mrp %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @article.cost %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @article.is_active %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
