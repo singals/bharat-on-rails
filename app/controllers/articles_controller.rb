@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.where(is_active: true)
   end
 
   # GET /articles/1
@@ -24,7 +24,10 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    my_params = article_params()
+    active_on_creation = {'is_active'=> true}
+    my_params = active_on_creation.merge(my_params)
+    @article = Article.new(my_params)
 
     respond_to do |format|
       if @article.save
@@ -54,7 +57,8 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    deactivate_on_deletion = {'is_active'=> false}
+    @article.update(deactivate_on_deletion)
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
