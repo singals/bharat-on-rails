@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  package_quantity: MyString
-  availabe_units: 1
-  mrp: 1.5
-  cost: 1.5
-  is_active: false
+  name: Article 1
+  package_quantity: 5 KG
+  availabe_units: 500
+  mrp: 240.5
+  cost: 210
+  is_active: true
 
 two:
-  name: MyString
-  package_quantity: MyString
-  availabe_units: 1
-  mrp: 1.5
-  cost: 1.5
+  name: Article 2
+  package_quantity: 1 Lt
+  availabe_units: 200
+  mrp: 500
+  cost: 450
   is_active: false

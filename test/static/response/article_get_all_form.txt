@@ -1,0 +1,34 @@
+
+
+    Bharat
+
+Articles
+
+Name
+
+Package quantity
+
+Availabe units
+
+Mrp
+
+Cost
+
+Article 1
+
+5 KG
+
+500
+
+240.5
+
+210.0
+
+Show
+
+Edit
+
+Destroy
+
+New Article
+

@@ -1,0 +1,22 @@
+
+
+    Bharat
+
+  Name:
+  Article 1
+
+  Package quantity:
+  5 KG
+
+  Availabe units:
+  500
+
+  Mrp:
+  240.5
+
+  Cost:
+  210.0
+
+Edit |
+Back
+
