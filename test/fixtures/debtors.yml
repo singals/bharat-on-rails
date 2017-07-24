@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: John Doe
+  village: village one
+  phone: 9876543210
+  is_active: true
+
+two:
+  name: Peter Dinklage
+  village: village two
+  phone: 1234567890
+  is_active: false

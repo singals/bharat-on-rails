@@ -1,0 +1,26 @@
+
+
+    Bharat
+
+Debtors
+
+Name
+
+Village
+
+Phone
+
+John Doe
+
+village one
+
+9876543210
+
+Show
+
+Edit
+
+Destroy
+
+New Debtor
+

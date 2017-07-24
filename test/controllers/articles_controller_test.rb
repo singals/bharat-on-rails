@@ -79,7 +79,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to article_url(@article)
   end
 
-  # fix this - failing because of soft delete
   test "should destroy article" do
     delete article_url(@article)
 

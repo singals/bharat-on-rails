@@ -1,0 +1,19 @@
+
+
+    Bharat
+
+  Name:
+  John Doe
+
+  Village:
+  village one
+
+  Phone:
+  9876543210
+
+  Is active:
+  true
+
+Edit |
+Back
+
