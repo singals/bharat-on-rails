@@ -34,10 +34,14 @@ class PurchaseItemsController < ApplicationController
   end
 
   def set_purchase_item
-    @purchase_item = PurchaseItem.find(purchase_items_params[:id].to_i)
+    @purchase_item = PurchaseItem.find(purchase_items_params_on_delete[:id].to_i)
   end
 
   def purchase_items_params
+    params.required(:purchase_item).permit(:article_id, :purchase_id, :quantity, :price, :cost)
+  end
+
+  def purchase_items_params_on_delete
     params.permit(:article_id, :purchase_id, :quantity, :price, :cost, :id)
   end
 

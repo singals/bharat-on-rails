@@ -56,9 +56,9 @@
       <h3>Add a purchase item</h3>
       <div class="field">
         <%= f.label :article_id %>
-        <%= f.text_field :article_id, id: :purchase_item_article_id %>
+        <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
       </div>
-      <div class="field">
+      <div class="field" style="display: none">
         <%= f.label :purchase_id %>
         <%= f.text_field :purchase_id, id: :purchase_item_purchase_id %>
       </div>

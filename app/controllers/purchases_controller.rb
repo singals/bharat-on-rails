@@ -10,6 +10,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
+    @articles = Article.where(is_active: true)
   end
 
   # GET /purchases/new
