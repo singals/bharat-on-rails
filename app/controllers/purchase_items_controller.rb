@@ -27,16 +27,32 @@ class PurchaseItemsController < ApplicationController
   # POST /purchase_items.json
   def create
     # add new purchase_item
-    @purchase.purchase_items.create! purchase_items_params
+    purchase_item_created = purchase_items_params
+    @purchase.purchase_items.create! purchase_item_created
 
     # update existing total-cost of the purchase entity
     actual_total_cost = 0
     @purchase.purchase_items.each do |item|
       actual_total_cost += item.cost
     end
+
     Purchase.update(@purchase.id, :total_cost => actual_total_cost)
 
-    # TODO : update articles qty & average cost
+    article_id = purchase_item_created[:article_id]
+    article = Article.find(article_id)
+
+    # calculate article's new quantity
+    added_quantity = purchase_item_created[:quantity].to_i
+    existing_quantity = article.availabe_units
+    new_quantity = existing_quantity + added_quantity
+
+    # calculate article's new average cost
+    existing_average_cost = article.cost
+    article_existing_worth = existing_quantity * existing_average_cost
+    new_average_cost = (article_existing_worth + purchase_item_created[:cost].to_f)/
+        (existing_quantity + added_quantity)
+
+    Article.update(article_id, :availabe_units => new_quantity, :cost => new_average_cost)
 
     redirect_to @purchase
   end
