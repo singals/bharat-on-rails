@@ -3,4 +3,5 @@
   <td><%= purchase_item.quantity %></td>
   <td><%= purchase_item.price %></td>
   <td class="purchase_item_cost"><%= purchase_item.cost %></td>
+  <td><%= link_to 'Destroy', '/purchases/' + @purchase.id.to_s + '/purchase_items/' + purchase_item.id.to_s, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
