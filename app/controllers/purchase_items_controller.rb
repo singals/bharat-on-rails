@@ -4,9 +4,9 @@ class PurchaseItemsController < ApplicationController
 
   # GET /purchase_items/1
   # GET /purchase_items/1.json
-  def show
-    @article = Article.find(purchase_items_params(OP_TYPE::OTHERS)[article_id])
-  end
+  # def show
+  #   @article = Article.find(purchase_items_params(OP_TYPE::OTHERS)[article_id])
+  # end
 
   # POST /purchase_items
   # POST /purchase_items.json

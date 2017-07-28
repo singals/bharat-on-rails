@@ -1,0 +1,34 @@
+
+
+    Bharat
+
+Purchases
+
+Seller name
+
+City
+
+Phone
+
+Invoice number
+
+Total cost
+
+R.K.Traders
+
+City of light
+
+9876543210
+
+1234
+
+57000.0
+
+Show
+
+Edit
+
+Destroy
+
+New Purchase
+

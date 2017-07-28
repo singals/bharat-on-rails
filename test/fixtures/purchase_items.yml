@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  article: one
+  purchase: one
+  quantity: 100
+  price: 170
+  cost: 17000
+
+two:
+  article: two
+  purchase: one
+  quantity: 100
+  price: 400
+  cost: 40000

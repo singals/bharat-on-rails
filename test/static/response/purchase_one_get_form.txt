@@ -1,0 +1,68 @@
+
+
+    Bharat
+
+  Seller name:
+  R.K.Traders
+
+  City:
+  City of light
+
+  Phone:
+  9876543210
+
+  Invoice number:
+  1234
+
+  Total cost:
+  57000.0
+
+Edit |
+Back
+
+Items:
+
+Article
+
+Quantity
+
+Price
+
+Cost
+
+Article 1
+
+100
+
+170.0
+
+17000.0
+
+Destroy
+
+Article 2
+
+100
+
+400.0
+
+40000.0
+
+Destroy
+
+View/Hide
+
+Add a purchase item
+
+        Article
+        Please select
+Article 1
+
+        Purchase
+
+        Price
+
+        Quantity
+
+        Cost
+
