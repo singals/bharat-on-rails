@@ -1,0 +1,7 @@
+<tr>
+  <td><%= sale_item.article.name %></td>
+  <td><%= sale_item.quantity %></td>
+  <td><%= sale_item.price %></td>
+  <td class="sale_item_amount"><%= sale_item.amount %></td>
+  <td><%= link_to 'Destroy', '/sales/' + @sale.id.to_s + '/sale_items/' + sale_item.id.to_s, method: :delete, data: {confirm: 'Are you sure?' } %></td>
+</tr>

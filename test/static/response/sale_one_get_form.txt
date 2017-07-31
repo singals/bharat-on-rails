@@ -1,0 +1,42 @@
+
+
+    Bharat
+
+  Nature:
+  CREDIT
+
+  Debtor:
+  John Doe - village one
+
+  Village:
+  village one
+
+  Phone:
+  9876543210
+
+  Total amount:
+  235.0
+
+Edit |
+Back
+
+Items:
+
+Article
+
+Quantity
+
+Price
+
+Amount
+
+Article 1
+
+1
+
+235.0
+
+235.0
+
+Destroy
+

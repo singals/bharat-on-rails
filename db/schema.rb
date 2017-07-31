@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170724121753) do
+ActiveRecord::Schema.define(version: 20170728054648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,32 @@ ActiveRecord::Schema.define(version: 20170724121753) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sale_items", force: :cascade do |t|
+    t.bigint "article_id"
+    t.bigint "sale_id"
+    t.integer "quantity"
+    t.float "price"
+    t.float "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_sale_items_on_article_id"
+    t.index ["sale_id"], name: "index_sale_items_on_sale_id"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.string "nature"
+    t.bigint "debtor_id"
+    t.string "village"
+    t.string "phone"
+    t.float "total_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["debtor_id"], name: "index_sales_on_debtor_id"
+  end
+
   add_foreign_key "purchase_items", "articles"
   add_foreign_key "purchase_items", "purchases"
+  add_foreign_key "sale_items", "articles"
+  add_foreign_key "sale_items", "sales"
+  add_foreign_key "sales", "debtors"
 end

@@ -12,7 +12,6 @@ class PurchaseItemsControllerTest < ActionDispatch::IntegrationTest
       post purchase_items_url, params: { purchase_item: { article_id: @purchase_item.article_id, cost: @purchase_item.cost, price: @purchase_item.price, purchase_id: @purchase_item.purchase_id, quantity: @purchase_item.quantity } }
     end
 
-    # assert_redirected_to purchase_item_url(PurchaseItem.last)
     assert_redirected_to purchase_url(@purchase)
   end
 

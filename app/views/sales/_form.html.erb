@@ -1,0 +1,42 @@
+<%= form_with(model: sale, local: true) do |form| %>
+  <% if sale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+      <% sale.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nature %>
+    <%= form.select(:nature, @transaction_nature.map { |value| [ value, value ] }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :debtor_id %>
+    <%= form.collection_select :debtor_id, @debtors, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :village %>
+    <%= form.text_field :village, id: :sale_village %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :sale_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_amount %>
+    <%= form.text_field :total_amount, id: :sale_total_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nature: CREDIT
+  debtor: one
+  village: village one
+  phone: 9876543210
+  total_amount: 235
+
+two:
+  nature: CASH
+  village: village two
+  phone: 1234567890
+  total_amount: 460

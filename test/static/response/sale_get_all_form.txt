@@ -1,0 +1,50 @@
+
+
+    Bharat
+
+Sales
+
+Nature
+
+Debtor
+
+Village
+
+Phone
+
+Total amount
+
+CREDIT
+
+John Doe - village one
+
+village one
+
+9876543210
+
+235.0
+
+Show
+
+Edit
+
+Destroy
+
+CASH
+
+None
+
+village two
+
+1234567890
+
+460.0
+
+Show
+
+Edit
+
+Destroy
+
+New Sale
+

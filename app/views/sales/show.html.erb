@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nature:</strong>
+  <%= @sale.nature %>
+</p>
+
+<p>
+  <strong>Debtor:</strong>
+  <% if @sale.debtor.nil? %>
+  None
+  <% else %>
+  <%= @sale.debtor.name + ' - ' + @sale.debtor.village %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Village:</strong>
+  <%= @sale.village %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @sale.phone %>
+</p>
+
+<p>
+  <strong>Total amount:</strong>
+  <%= @sale.total_amount %>
+</p>
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>
+
+<br/>
+<hr>
+
+<h2>Items:</h2>
+
+<div id="sale_items">
+  <table id="sale_items_table">
+    <tr>
+      <th>Article</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th colspan="1"></th>
+    </tr>
+    <%= render @sale.sale_items, :onChange=>"set_total_cost"%>
+  </table>
+</div>

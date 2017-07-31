@@ -1,0 +1,57 @@
+<h1>Editing Sale</h1>
+
+<%= render 'form', sale: @sale %>
+
+<%= link_to 'Show', @sale %> |
+<%= link_to 'Back', sales_path %>
+
+<br/>
+<hr>
+
+<h2>Items:</h2>
+
+<div id="sale_items">
+  <table id="sale_items_table">
+    <tr>
+      <th>Article</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Amount</th>
+      <th colspan="1"></th>
+    </tr>
+    <%= render @sale.sale_items, :onChange=>"set_total_cost"%>
+  </table>
+</div>
+
+<br/>
+
+<a id ="sale_item_toggler" onclick="toggle_sale_item()">View/Hide</a>
+
+<div id="sale_item">
+  <hr>
+  <%= form_for [@sale, @sale.sale_items.new] do |f| %>
+      <h3>Add a sale item</h3>
+      <div class="field">
+        <%= f.label :article_id %>
+        <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
+      </div>
+      <div class="field" style="display: none">
+        <%= f.label :sale_id %>
+        <%= f.text_field :sale_id, id: :sale_item_sale_id %>
+      </div>
+      <div class="field">
+        <%= f.label :price %>
+        <%= f.text_field :price, id: :sale_item_price, :onChange=> "calculate_cost()" %>
+      </div>
+      <div class="field">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity, id: :sale_item_quantity, :onChange=> "calculate_cost()" %>
+      </div>
+      <div class="field">
+        <%= f.label :amount %>
+        <%= f.text_field :amount, id: :sale_item_amount, :class=> "form-control", :readonly=> true %>
+      </div>
+      <br>
+      <%= f.submit %>
+  <% end %>
+</div>
