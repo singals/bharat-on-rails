@@ -50,19 +50,3 @@ Article 2
 
 Destroy
 
-View/Hide
-
-Add a purchase item
-
-        Article
-        Please select
-Article 1
-
-        Purchase
-
-        Price
-
-        Quantity
-
-        Cost
-

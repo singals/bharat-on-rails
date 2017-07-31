@@ -4,3 +4,56 @@
 
 <%= link_to 'Show', @purchase %> |
 <%= link_to 'Back', purchases_path %>
+
+<br/>
+<hr>
+
+<h2>Items:</h2>
+
+<div id="purchase_items">
+  <table id="purchase_items_table">
+    <tr>
+      <th>Article</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Cost</th>
+      <th colspan="1"></th>
+    </tr>
+    <%= render @purchase.purchase_items, :onChange=>"set_total_cost"%>
+  </table>
+</div>
+
+<br/>
+
+<a id ="purchase_item_toggler" onclick="toggle_purchase_item()">View/Hide</a>
+
+<div id="purchase_item">
+  <hr>
+  <%= form_for [@purchase, @purchase.purchase_items.new] do |f| %>
+      <h3>Add a purchase item</h3>
+      <div class="field">
+        <%= f.label :article_id %>
+        <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
+      </div>
+      <div class="field" style="display: none">
+        <%= f.label :purchase_id %>
+        <%= f.text_field :purchase_id, id: :purchase_item_purchase_id %>
+      </div>
+      <div class="field">
+        <%= f.label :price %>
+        <%= f.text_field :price, id: :purchase_item_price, :onChange=> "calculate_cost()" %>
+      </div>
+      <div class="field">
+        <%= f.label :quantity %>
+        <%= f.text_field :quantity, id: :purchase_item_quantity, :onChange=> "calculate_cost()" %>
+      </div>
+      <div class="field">
+        <%= f.label :cost %>
+        <%= f.text_field :cost, id: :purchase_item_cost %>
+      </div>
+
+
+      <%= f.submit %>
+  <% end %>
+</div>
+

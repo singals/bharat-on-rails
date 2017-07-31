@@ -20,6 +20,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
+    @articles = Article.where(is_active: true)
   end
 
   # POST /purchases
