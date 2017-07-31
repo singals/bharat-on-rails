@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This projects uses the following:
 
-Things you may want to cover:
+* Ruby (version 2.3.1)
 
-* Ruby version
+* Rails (version 5.1.2)
 
-* System dependencies
+* Database
 
-* Configuration
-
-* Database creation
+> Expects a postgres connection, see database.yml for configuration. 
 
 * Database initialization
+> After setting up the DB, in the project root directory, execute:
+
+> rails db:migrate
 
 * How to run the test suite
+> After setting up the DB, in the project root directory, execute:
 
-* Services (job queues, cache servers, search engines, etc.)
+> rails test
 
-* Deployment instructions
 
-* ...
+# TODO
+1. Implement Profit and Loss Account.
+2. Allow sale/purchase item to be created on sale/purchase creation.
+3. Add UI tests using Capybara or something else.
+4. Improve test coverage
+5. Build CI pipeline
+6. Use JQuery-UI to make the UI look better
