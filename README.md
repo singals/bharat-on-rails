@@ -29,6 +29,12 @@ This projects uses the following:
     After setting up the DB, in the project root directory, execute:
 
     > rails db:migrate
+    
+* (Optional) Seeding the database
+
+    seeds.rb contains of seed data for a Fertilizers & Pesticide ship. Please feel free to update the list for yourself 
+    and execute the following command to insert into DB:
+    > rake db:setup
 
 * How to run the test suite
 
