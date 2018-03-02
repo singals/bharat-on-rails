@@ -51,8 +51,7 @@ jobs:
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "test/**/*_test.rb" | circleci tests split --split-by=timings)"
 
-            bundle exec rails db:create
-                        bundle exec rake db:structure:load
+            bundle exec rails test
 
       # collect reports
       - store_test_results:
