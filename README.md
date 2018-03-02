@@ -1,4 +1,4 @@
-# README
+### Circle CI [![CircleCI](https://circleci.com/gh/singals/bharat.svg?style=svg)](https://circleci.com/gh/singals/bharat)
 
 ### Summary
 <b>Bharat</b> is a RoR based app, intended to help people running small scale businesses by managing almost everything 
@@ -55,5 +55,4 @@ This projects uses the following:
 2. Implement Profit and Loss Account.
 3. Add UI tests using Capybara or something else.
 4. Improve test coverage
-5. Build CI pipeline
-6. Use JQuery-UI to make the UI look better
+5. Use JQuery-UI to make the UI look better
