@@ -12,10 +12,10 @@ articles = Article.create([{name: 'Urea', package_quantity: '50 KG', availabe_un
 debtors = Debtor.create([{name: 'Om Prakash', village: 'Navarsi', phone: '9876543210', is_active: true},
                          {name: 'Ram Kumar', village: 'Bafdi', phone: '9875564321', is_active: true}])
 
-sales = Sale.create([{nature: 'CASH', village: 'Indri', phone: '8976543201', total_amount: 2955},
-                    {nature: 'CREDIT', debtor_id: 1, village: 'Navarsi', phone: '9876543210', total_amount: 1180}])
+sale_one = Sale.create!({nature: 'CASH', village: 'Indri', phone: '8976543201', total_amount: 2955})
+sale_one.sale_items.create({article_id: 1, quantity: 5, price: 275, amount: 1375})
+sale_one.sale_items.create({article_id: 2, quantity: 2, price: 790, amount: 1580})
 
-sale_items = SaleItem.create([{article_id: 1, sale_id: 1, quantity: 5, price: 275, amount: 1375},
-                              {article_id: 2, sale_id: 1, quantity: 2, price: 790, amount: 1580},
-                              {article_id: 1, sale_id: 2, quantity: 2, price: 270, amount: 540},
-                              {article_id: 3, sale_id: 2, quantity: 2, price: 320, amount: 640}])
+sale_two = Sale.create({nature: 'CREDIT', debtor_id: 1, village: 'Navarsi', phone: '9876543210', total_amount: 1180})
+sale_two.sale_items.create({article_id: 1, quantity: 2, price: 270, amount: 540})
+sale_two.sale_items.create({article_id: 3, quantity: 2, price: 320, amount: 640})
