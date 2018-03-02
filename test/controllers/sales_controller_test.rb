@@ -14,7 +14,7 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
-  test "should be able to get a purchase by id" do
+  test "should be able to get a sales by id" do
     get('/sales/980190962')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text

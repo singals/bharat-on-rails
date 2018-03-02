@@ -14,11 +14,6 @@
   Phone:
   9876543210
 
-  Total amount:
-  235.0
-
-Edit |
-Back
 
 Items:
 
@@ -39,4 +34,10 @@ Article 1
 235.0
 
 Destroy
+
+  Total amount:
+  235.0
+
+Edit |
+Back
 

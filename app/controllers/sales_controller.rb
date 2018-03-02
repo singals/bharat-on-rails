@@ -35,6 +35,7 @@ class SalesController < ApplicationController
     @transaction_nature = ['CASH', 'CREDIT']
     @articles = Article.where(is_active: true)
     @debtors = Debtor.where(is_active: true)
+    @sale_items = SaleItem.where(is_active: true, sale_id: params[:id])
 
     @debtors.each do |debtor|
       debtor.name += ' - ' + debtor.village

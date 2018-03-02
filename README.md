@@ -34,7 +34,7 @@ This projects uses the following:
 
     seeds.rb contains of seed data for a Fertilizers & Pesticide ship. Please feel free to update the list for yourself 
     and execute the following command to insert into DB:
-    > rake db:setup
+    > rails db:setup
 
 * How to run the test suite
 
@@ -50,10 +50,15 @@ This projects uses the following:
     Now the application shall be accessible at port 3000 (unless changed) 
 
 
-# TODO
-1. Implement Profit and Loss Account.
-2. Allow sale/purchase item to be created on sale/purchase creation.
+### TODO (functionalities)
+1. Allow sale/purchase item to be created on sale/purchase creation.
+2. Implement Profit and Loss Account.
 3. Add UI tests using Capybara or something else.
 4. Improve test coverage
 5. Build CI pipeline
 6. Use JQuery-UI to make the UI look better
+
+### Known issue(s)
+1. Edit sale view -> sale-item price and total-price calculated only for first sale_item
+2. New sale view -> unable to create new sale without debtor name (for both CASH/CREDIT)
+3. 

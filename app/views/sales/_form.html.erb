@@ -1,4 +1,4 @@
-<%= form_with(model: sale, local: true) do |form| %>
+<%= form_for @sale do |form| %>
   <% if sale.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
@@ -31,9 +31,39 @@
     <%= form.text_field :phone, id: :sale_phone %>
   </div>
 
+  <%= form.fields_for :sale_items do |f| %>
+    <div id="sale_item">
+      <hr>
+        <h3>Add a sale item</h3>
+        <div class="field">
+          <%= f.label :article_id %>
+          <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
+        </div>
+        <div class="field" style="display: none">
+          <%= f.label :sale_id %>
+          <%= f.text_field :sale_id, id: :sale_item_sale_id %>
+        </div>
+        <div class="field">
+          <%= f.label :price %>
+          <%= f.text_field :price, id: :sale_item_price, :onChange=> "calculate_cost()" %>
+        </div>
+        <div class="field">
+          <%= f.label :quantity %>
+          <%= f.text_field :quantity, id: :sale_item_quantity, :onChange=> "calculate_cost()" %>
+        </div>
+        <div class="field">
+          <%= f.label :amount %>
+          <%= f.text_field :amount, id: :sale_item_amount, :class=> "form-control", :readonly=> true %>
+        </div>
+        <br>
+    </div>
+  <% end %>
+
+  <hr>
+
   <div class="field">
     <%= form.label :total_amount %>
-    <%= form.text_field :total_amount, id: :sale_total_amount %>
+    <%= form.text_field :total_amount, id: :sale_total_amount_field, :class=> "form-control", :readonly=> true %>
   </div>
 
   <div class="actions">
