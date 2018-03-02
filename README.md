@@ -1,10 +1,10 @@
 # README
 
-###Summary
+### Summary
 <b>Bharat</b> is a RoR based app, intended to help people running small scale businesses by managing almost everything 
 (s)he is concerned with; like the Sales, Purchase, Stock and Accounts. 
 
-###Prerequisites
+### Prerequisites
 This projects uses the following:
 
 * Ruby (version 2.5.0)
@@ -13,7 +13,7 @@ This projects uses the following:
 
 * Postgres (version 10)
 
-###Running the application
+### Running the application
 * Bundle install all gems
 
     In the project root directory, execute:
@@ -57,8 +57,3 @@ This projects uses the following:
 4. Improve test coverage
 5. Build CI pipeline
 6. Use JQuery-UI to make the UI look better
-
-### Known issue(s)
-1. Edit sale view -> sale-item price and total-price calculated only for first sale_item
-2. New sale view -> unable to create new sale without debtor name (for both CASH/CREDIT)
-3. 
