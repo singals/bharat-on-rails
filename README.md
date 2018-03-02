@@ -35,6 +35,8 @@ This projects uses the following:
     seeds.rb contains of seed data for a Fertilizers & Pesticide ship. Please feel free to update the list for yourself 
     and execute the following command to insert into DB:
     > rails db:setup
+    
+    ```Please note that this is not intended to be executed on PROD as-is```
 
 * How to run the test suite
 
