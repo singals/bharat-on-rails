@@ -1,0 +1,2 @@
+class ProfitAndLossAccount < ApplicationRecord
+end

@@ -19,3 +19,6 @@ sale_one.sale_items.create({article_id: 2, quantity: 2, price: 790, amount: 1580
 sale_two = Sale.create({nature: 'CREDIT', debtor_id: 1, village: 'Navarsi', phone: '9876543210', total_amount: 1180})
 sale_two.sale_items.create({article_id: 1, quantity: 2, price: 270, amount: 540})
 sale_two.sale_items.create({article_id: 3, quantity: 2, price: 320, amount: 640})
+
+ProfitAndLossAccount.create([{description: 'Sold article 1', amount: 20, current_balance: 20, financial_year: '2017-2018'},
+                                      {description: 'Sale-return article 1', amount: -20, current_balance: 0, financial_year: '2017-2018'}])

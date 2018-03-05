@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802062522) do
+ActiveRecord::Schema.define(version: 20170802065900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,12 +35,22 @@ ActiveRecord::Schema.define(version: 20170802062522) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profit_and_loss_accounts", force: :cascade do |t|
+    t.string "description"
+    t.float "amount"
+    t.float "current_balance"
+    t.string "financial_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["financial_year"], name: "index_profit_and_loss_accounts_on_financial_year"
+  end
+
   create_table "purchase_items", force: :cascade do |t|
     t.bigint "article_id"
     t.bigint "purchase_id"
     t.integer "quantity"
     t.float "price"
-    t.float "cost" #TODO better name?
+    t.float "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_purchase_items_on_article_id"

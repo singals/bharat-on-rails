@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profit_and_loss_account.description %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @profit_and_loss_account.amount %>
+</p>
+
+<p>
+  <strong>Current balance:</strong>
+  <%= @profit_and_loss_account.current_balance %>
+</p>
+
+<p>
+  <strong>Financial year:</strong>
+  <%= @profit_and_loss_account.financial_year %>
+</p>
+
+<%= link_to 'Edit', edit_profit_and_loss_account_path(@profit_and_loss_account) %> |
+<%= link_to 'Back', profit_and_loss_accounts_path %>

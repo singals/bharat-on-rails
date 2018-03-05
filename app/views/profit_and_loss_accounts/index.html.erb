@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profit And Loss Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Current balance</th>
+      <th>Financial year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profit_and_loss_accounts.each do |profit_and_loss_account| %>
+      <tr>
+        <td><%= profit_and_loss_account.description %></td>
+        <td><%= profit_and_loss_account.amount %></td>
+        <td><%= profit_and_loss_account.current_balance %></td>
+        <td><%= profit_and_loss_account.financial_year %></td>
+        <td><%= link_to 'Show', profit_and_loss_account %></td>
+        <td><%= link_to 'Edit', edit_profit_and_loss_account_path(profit_and_loss_account) %></td>
+        <td><%= link_to 'Destroy', profit_and_loss_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profit And Loss Account', new_profit_and_loss_account_path %>

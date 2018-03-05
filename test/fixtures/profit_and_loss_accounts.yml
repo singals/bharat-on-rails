@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: sold article 1
+  amount: 20
+  current_balance: 20
+  financial_year: 2017-2018
+
+two:
+  description: sold article 1 returned
+  amount: -20
+  current_balance: 0
+  financial_year: 2017-2018
