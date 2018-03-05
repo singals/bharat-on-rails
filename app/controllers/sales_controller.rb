@@ -24,6 +24,9 @@ class SalesController < ApplicationController
     @sale = Sale.new
     @transaction_nature = ['CASH', 'CREDIT']
     @debtors = Debtor.where(is_active: true)
+    @articles = Article.where(is_active: true)
+    @sale.sale_items.build
+
 
     @debtors.each do |debtor|
       debtor.name += ' - ' + debtor.village
@@ -35,7 +38,7 @@ class SalesController < ApplicationController
     @transaction_nature = ['CASH', 'CREDIT']
     @articles = Article.where(is_active: true)
     @debtors = Debtor.where(is_active: true)
-    @sale_items = SaleItem.where(is_active: true, sale_id: params[:id])
+    @sale_items = SaleItem.where(sale_id: params[:id])
 
     @debtors.each do |debtor|
       debtor.name += ' - ' + debtor.village
@@ -45,6 +48,8 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
+    # TODO adjust stock and P&L account
+
     @sale = Sale.new(sale_params)
 
     respond_to do |format|
@@ -61,6 +66,7 @@ class SalesController < ApplicationController
   # PATCH/PUT /sales/1
   # PATCH/PUT /sales/1.json
   def update
+    # TODO adjust stock and P&L account
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
@@ -75,6 +81,7 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
+    # TODO adjust stock and P&L account
     @sale.destroy
     respond_to do |format|
       format.html { redirect_to sales_url, notice: 'Sale was successfully destroyed.' }
@@ -90,6 +97,7 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:nature, :debtor_id, :village, :phone, :total_amount)
+      params.require(:sale).permit(:nature, :debtor_id, :village, :phone, :total_amount,
+        sale_items_attributes: [:article_id, :quantity, :price, :amount])
     end
 end

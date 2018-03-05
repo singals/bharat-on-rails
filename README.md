@@ -58,3 +58,5 @@ This projects uses the following:
 3. Add UI tests using Capybara or something else.
 4. Improve test coverage
 5. Use JQuery-UI to make the UI look better
+6. Add name to Sale model
+7. Default village, phone and name for Credit sale on debtor selection.
