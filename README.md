@@ -60,3 +60,5 @@ This projects uses the following:
 5. Use JQuery-UI to make the UI look better
 6. Add name to Sale model
 7. Default village, phone and name for Credit sale on debtor selection.
+8. Add nature of transaction (Cash/Credit) for Purchase and maintain account
+9. Implement Accounts functionality for debtors and creditors.

@@ -15,3 +15,11 @@ two:
   mrp: 500
   cost: 450
   is_active: false
+
+three:
+  name: Article 3
+  package_quantity: 20 KG
+  availabe_units: 50
+  mrp: 220
+  cost: 150
+  is_active: true

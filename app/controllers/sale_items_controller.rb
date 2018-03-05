@@ -13,7 +13,7 @@ class SaleItemsController < ApplicationController
 
     update_article_quantity(sale_item_created, others)
 
-    # TODO add to P&L
+    # TODO adjust stock and P&L account
 
     redirect_to @sale
   end
@@ -26,7 +26,7 @@ class SaleItemsController < ApplicationController
     update_total_cost_of_sale
     update_article_quantity(sale_items_params(delete), delete)
 
-    # TODO add to P&L
+    # TODO adjust stock and P&L account
 
     redirect_to @sale
   end

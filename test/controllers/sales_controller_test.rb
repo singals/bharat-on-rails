@@ -39,7 +39,7 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'CASH', @latestSale.nature, 'Nature of sale does not match'
     assert_nil @latestSale.debtor, 'Debtor id does not match'
     assert_equal 'test village', @latestSale.village, 'Village does not match'
-    assert_equal '9876543210', @latestSale.phone, 'Village does not match'
+    assert_equal '9876543210', @latestSale.phone, 'Phone does not match'
     assert_equal 240, @latestSale.total_amount, 'Total amount of sale does not match'
 
     assert_equal 1, @latestSaleItems.size, "Number of sale items does not match"
@@ -61,7 +61,7 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'CREDIT', @latestSale.nature, 'Nature of sale does not match'
     assert_equal 980190962, @latestSale.debtor_id, 'Debtor id does not match'
     assert_equal 'test village', @latestSale.village, 'Village does not match'
-    assert_equal '9876543211', @latestSale.phone, 'Village does not match'
+    assert_equal '9876543211', @latestSale.phone, 'Phone does not match'
     assert_equal 1240, @latestSale.total_amount, 'Total amount of sale does not match'
 
     assert_equal 2, @latestSaleItems.size, "Number of sale items does not match"

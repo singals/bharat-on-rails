@@ -16,16 +16,21 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
+    @purchase.purchase_items.build
+    @articles = Article.where(is_active: true)
   end
 
   # GET /purchases/1/edit
   def edit
     @articles = Article.where(is_active: true)
+    @purchase_items = PurchaseItem.where(purchase_id: params[:id])
   end
 
   # POST /purchases
   # POST /purchases.json
   def create
+    # TODO adjust stock
+    # TODO adjust creditor's account for CREDIT purchase
     @purchase = Purchase.new(purchase_params)
 
     respond_to do |format|
@@ -42,6 +47,8 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
   def update
+    # TODO adjust stock
+    # TODO adjust creditor's account for CREDIT purchase
     respond_to do |format|
       if @purchase.update(purchase_params)
         format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
@@ -56,6 +63,8 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
+    # TODO adjust stock
+    # TODO adjust creditor's account for CREDIT purchase
     @purchase.destroy
     respond_to do |format|
       format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
@@ -72,6 +81,7 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:seller_name, :city, :phone, :invoice_number, :total_cost)
+      params.require(:purchase).permit(:seller_name, :city, :phone, :invoice_number, :total_cost,
+             purchase_items_attributes: [:article_id, :purchase_id, :quantity, :price, :cost])
     end
 end

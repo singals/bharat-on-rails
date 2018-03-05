@@ -46,11 +46,11 @@
         </div>
         <div class="field">
           <%= f.label :price %>
-          <%= f.text_field :price, id: :sale_item_price, :onChange=> "calculate_cost()" %>
+          <%= f.text_field :price, id: :sale_item_price, :onChange=> "calculate_amount()" %>
         </div>
         <div class="field">
           <%= f.label :quantity %>
-          <%= f.text_field :quantity, id: :sale_item_quantity, :onChange=> "calculate_cost()" %>
+          <%= f.text_field :quantity, id: :sale_item_quantity, :onChange=> "calculate_amount()" %>
         </div>
         <div class="field">
           <%= f.label :amount %>

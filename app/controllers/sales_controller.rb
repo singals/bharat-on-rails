@@ -49,6 +49,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     # TODO adjust stock and P&L account
+    # TODO adjust debtor's account for CREDIT sale
 
     @sale = Sale.new(sale_params)
 
@@ -67,6 +68,7 @@ class SalesController < ApplicationController
   # PATCH/PUT /sales/1.json
   def update
     # TODO adjust stock and P&L account
+    # TODO adjust debtor's account for CREDIT sale
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
@@ -82,6 +84,7 @@ class SalesController < ApplicationController
   # DELETE /sales/1.json
   def destroy
     # TODO adjust stock and P&L account
+    # TODO adjust debtor's account for CREDIT sale
     @sale.destroy
     respond_to do |format|
       format.html { redirect_to sales_url, notice: 'Sale was successfully destroyed.' }

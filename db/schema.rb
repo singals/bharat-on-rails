@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170802062522) do
     t.bigint "purchase_id"
     t.integer "quantity"
     t.float "price"
-    t.float "cost"
+    t.float "cost" #TODO better name?
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_purchase_items_on_article_id"
