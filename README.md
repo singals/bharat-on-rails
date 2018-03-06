@@ -62,3 +62,5 @@ This projects uses the following:
 7. Default village, phone and name for Credit sale on debtor selection.
 8. Add nature of transaction (Cash/Credit) for Purchase and maintain account
 9. Implement Accounts functionality for debtors and creditors.
+10. Option to print bill
+11. Authentication + Authorization
