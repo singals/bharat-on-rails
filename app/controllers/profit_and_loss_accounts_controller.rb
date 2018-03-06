@@ -1,4 +1,5 @@
 class ProfitAndLossAccountsController < ApplicationController
+  include ProfitAndLossAccountsHelper
   before_action :set_profit_and_loss_account, only: [:show, :edit, :update, :destroy]
 
   # GET /profit_and_loss_accounts
@@ -15,10 +16,12 @@ class ProfitAndLossAccountsController < ApplicationController
   # GET /profit_and_loss_accounts/new
   def new
     @profit_and_loss_account = ProfitAndLossAccount.new
+    @profit_and_loss_account.financial_year = get_financial_year
   end
 
   # GET /profit_and_loss_accounts/1/edit
   def edit
+
   end
 
   # POST /profit_and_loss_accounts
