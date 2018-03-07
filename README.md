@@ -64,3 +64,5 @@ This projects uses the following:
 9. Implement Accounts functionality for debtors and creditors.
 10. Option to print bill
 11. Authentication + Authorization
+12. Localisation
+13. Payment support for Credit & Debit Cards, UPI
