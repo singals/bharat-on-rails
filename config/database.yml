@@ -13,8 +13,8 @@ development:
 test:
   <<: *default
   database: bharat_test
-  username: postgres
-  password: postgres
+  username: test
+  password: test
 
 production:
   <<: *default
