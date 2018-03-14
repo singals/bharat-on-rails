@@ -12,6 +12,7 @@ development:
 
 test:
   <<: *default
+  host: postgres
   database: bharat_test
   username: test
   password: test
