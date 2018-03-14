@@ -13,47 +13,25 @@ This projects uses the following:
 
 * Postgres (version 10)
 
+* Docker (version 17.06.2-ce-mac27 (19124))
+
+* Docker Compose (version 1.14.0)
+
 ### Running the application
-* Bundle install all gems
-
-    In the project root directory, execute:
-    > bundle install
-
-
-* Database
-
-    Expects a postgres connection, see database.yml for configuration. 
-
-* Database initialization
-
-    After setting up the DB, in the project root directory, execute:
-
-    > rails db:migrate
-    
-* (Optional) Seeding the database
-
-    seeds.rb contains of seed data for a Fertilizers & Pesticide ship. Please feel free to update the list for yourself 
-    and execute the following command to insert into DB:
-    > rails db:setup
-    
-    ```Please note that this is not intended to be executed on PROD as-is```
-
-* How to run the test suite
-
-    After setting up the DB, in the project root directory, execute:
-
-    > rails test
+* Install Docker
 
 * How to run the app
 
     From the root directory of the project, execute
-    > rails s
+    > docker-compose build
+    
+    > docker-compose up &
 
     Now the application shall be accessible at port 3000 (unless changed) 
 
 
 ### TODO (functionalities)
-1. Allow sale/purchase item to be created on sale/purchase creation.
+1. Allow multiple sale/purchase item to be created on sale/purchase creation.
 2. Implement Profit and Loss Account.
 3. Add UI tests using Capybara or something else.
 4. Improve test coverage

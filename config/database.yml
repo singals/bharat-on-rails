@@ -2,23 +2,23 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  host: localhost
+  host: db
 
 development:
   <<: *default
   database: bharat_dev
   username: postgres
-  password: pass
+  password: postgres
 
 test:
   <<: *default
   database: bharat_test
-  username: test
-  password: test
+  username: postgres
+  password: postgres
 
 production:
   <<: *default
   database: bharat
   username: postgres
-  password: pass
+  password: postgres
 
