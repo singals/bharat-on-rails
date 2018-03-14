@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PurchaseItemsController < ApplicationController
   before_action :set_purchase
   before_action :set_purchase_item, only: [:destroy]

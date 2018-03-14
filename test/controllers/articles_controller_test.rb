@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 require 'loofah'
 
@@ -11,7 +13,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     get('/articles')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/article_get_all_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/article_get_all_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
@@ -19,33 +21,32 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     get('/articles/980190962')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/article_one_get_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/article_one_get_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
 
     get('/articles/298486374')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/article_two_get_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/article_two_get_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
   test "should be able to save an article" do
-    _articleJson = {'article': {'name': 'some valid name', 'cost': 55, 'quantity': 300, 'available_units': 150, 'mrp': 252}}
+    article_json = { 'article': { 'name': 'some valid name', 'cost': 55, 'quantity': 300, 'available_units': 150, 'mrp': 252 } }
     assert_difference('Article.count') do
-      post '/articles', params: _articleJson
+      post '/articles', params: article_json
     end
 
     assert_response :redirect
   end
 
   test "should not save article without title" do
-    _articleInvalidJson = {'cost': 55, 'package_quantity': 300, 'availabe_units': 150, 'mrp': 252}
-    article = Article.new _articleInvalidJson
+    article_invalid_json = { 'cost': 55, 'package_quantity': 300, 'availabe_units': 150, 'mrp': 252 }
+    article = Article.new article_invalid_json
     assert_not article.save, "Saved the article without a title"
   end
 
-
-  #auto generated tests
+  # auto generated tests
   test "should get index" do
     get articles_url
     assert_response :success

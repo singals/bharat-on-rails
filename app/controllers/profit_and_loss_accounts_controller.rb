@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfitAndLossAccountsController < ApplicationController
   include ProfitAndLossAccountsHelper
   before_action :set_profit_and_loss_account, only: [:show, :edit, :update, :destroy]

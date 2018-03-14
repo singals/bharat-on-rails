@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Sale < ApplicationRecord
   has_many :sale_items, :dependent => :destroy
   belongs_to :debtor, optional: true

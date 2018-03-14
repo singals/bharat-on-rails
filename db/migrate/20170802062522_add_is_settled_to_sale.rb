@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIsSettledToSale < ActiveRecord::Migration[5.1]
   def change
     add_column :sales, :is_settled, :boolean

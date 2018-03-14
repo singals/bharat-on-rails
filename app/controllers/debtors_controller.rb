@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DebtorsController < ApplicationController
   before_action :set_debtor, only: [:show, :edit, :update, :destroy]
 

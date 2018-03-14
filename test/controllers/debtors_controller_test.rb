@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class DebtorsControllerTest < ActionDispatch::IntegrationTest
@@ -50,7 +52,7 @@ class DebtorsControllerTest < ActionDispatch::IntegrationTest
     get('/debtors')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/debtor_get_all_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/debtor_get_all_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
@@ -58,28 +60,28 @@ class DebtorsControllerTest < ActionDispatch::IntegrationTest
     get('/debtors/980190962')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/debtor_one_get_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/debtor_one_get_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
 
     get('/debtors/298486374')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/debtor_two_get_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/debtor_two_get_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
   test "should be able to save a debtor" do
-    _debtorJson = {'debtor': {'name': 'some valid name', 'village': 'some valid village', 'phone': '3001234567'}}
+    debtor_json = { 'debtor': { 'name': 'some valid name', 'village': 'some valid village', 'phone': '3001234567' } }
     assert_difference('Debtor.count') do
-      post '/debtors', params: _debtorJson
+      post '/debtors', params: debtor_json
     end
 
     assert_response :redirect
   end
 
   test "should not save debtor without name" do
-    _articleInvalidJson = {'cost': 55, 'package_quantity': 300, 'availabe_units': 150, 'mrp': 252}
-    article = Article.new _articleInvalidJson
+    article_invalid_json = { 'cost': 55, 'package_quantity': 300, 'availabe_units': 150, 'mrp': 252 }
+    article = Article.new article_invalid_json
     assert_not article.save, "Saved the article without a title"
   end
 end

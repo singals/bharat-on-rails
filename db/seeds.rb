@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Please note that this is seed data for making development task easy, not intended to run this on PROD
 # Another point to note is that the cost, mrp and other attributes holds mock data and may not be same as in real world
 
