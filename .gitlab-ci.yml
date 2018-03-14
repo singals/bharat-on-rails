@@ -16,3 +16,7 @@ before_script:
 tests:
   script:
     - rails test
+
+static-code-analysis:
+  scripts:
+    - rubocop
