@@ -18,5 +18,5 @@ tests:
     - rails test
 
 static-code-analysis:
-  scripts:
+  script:
     - rubocop
