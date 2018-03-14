@@ -1,5 +1,3 @@
-### Circle CI [![CircleCI](https://circleci.com/gh/singals/bharat.svg?style=svg)](https://circleci.com/gh/singals/bharat)
-
 ### Summary
 <b>Bharat</b> is a RoR based app, intended to help people running small scale businesses by managing almost everything 
 (s)he is concerned with; like the Sales, Purchase, Stock and Accounts. 
