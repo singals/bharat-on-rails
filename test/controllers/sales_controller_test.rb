@@ -31,9 +31,12 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should be able to create a new cash sale" do
-    post '/sales', :params => {:sale => {:nature => 'CASH', :village => 'test village', :phone => '9876543210',
-                                         :sale_items_attributes => [{:article_id => 980190962, :price => 240, :quantity => 1, :amount => 240}],
-                                         :total_amount => 240}}
+    @article = Article.find(980190962)
+    initial_qty = @article.availabe_units
+
+    post '/sales', params: {sale: {nature: 'CASH', village: 'test village', phone: '9876543210',
+                                   sale_items_attributes: [{:article_id => 980190962, :price => 240, :quantity => 1, :amount => 240}],
+                                   total_amount: 240}}
 
     assert_response :redirect
     @latestSale = Sale.order('created_at').last
@@ -49,13 +52,17 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 240, @latestSaleItems[0].price, 'Price of sale-item does not match'
     assert_equal 1, @latestSaleItems[0].quantity, 'Quantity of sale-item does not match'
     assert_equal 240, @latestSaleItems[0].amount, 'Amount of sale-item does not match'
+
+    @article = Article.find(980190962)
+    current_qty = @article.availabe_units
+    assert_equal initial_qty - 1, current_qty, 'Inventory/Stock shall be adjusted'
   end
 
   test "should be able to create a new credit sale" do
-    post '/sales', :params => {:sale => {:nature => 'CREDIT', :debtor_id => '980190962', :village => 'test village', :phone => '9876543211',
-                                         :sale_items_attributes => [{:article_id => 298486374, :price => 500, :quantity => 2, :amount => 1000},
-                                                                    {:article_id => 980190962, :price => 240, :quantity => 1, :amount => 240}],
-                                         :total_amount => 1240}}
+    post '/sales', params: {sale: {nature: 'CREDIT', debtor_id: '980190962', village: 'test village', phone: '9876543211',
+                                   sale_items_attributes: [{:article_id => 298486374, :price => 500, :quantity => 2, :amount => 1000},
+                                                           {:article_id => 980190962, :price => 240, :quantity => 1, :amount => 240}],
+                                   total_amount: 1240}}
 
     assert_response :redirect
     @latestSale = Sale.order('created_at').last
@@ -78,7 +85,6 @@ class SalesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, @latestSaleItems[1].quantity, 'Quantity of sale-item does not match'
     assert_equal 240, @latestSaleItems[1].amount, 'Amount of sale-item does not match'
   end
-
 
   # auto-generated
   test "should get index" do

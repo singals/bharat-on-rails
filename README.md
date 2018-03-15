@@ -32,7 +32,7 @@ This projects uses the following:
 1. Allow multiple sale/purchase item to be created on sale/purchase creation.
 2. Implement Profit and Loss Account.
 3. Add UI tests using Capybara or something else.
-4. Improve test coverage
+4. Improve test coverage, add End-End tests
 5. Use JQuery-UI to make the UI look better
 6. Add name to Sale model
 7. Default village, phone and name for Credit sale on debtor selection.

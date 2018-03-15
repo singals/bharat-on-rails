@@ -15,4 +15,16 @@ module ArticlesHelper
 
     article.update(availabe_units: new_qty, cost: new_avg)
   end
+
+  def update_article_from_sale_item(sale_item)
+    article = Article.find(sale_item.article_id)
+
+    current_qty = article.availabe_units
+
+    qty_sold = sale_item.quantity
+
+    new_qty = current_qty - qty_sold
+
+    article.update(availabe_units: new_qty)
+  end
 end
