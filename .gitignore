@@ -23,3 +23,5 @@
 .byebug_history
 
 .idea/*
+
+/test/html_reports/*

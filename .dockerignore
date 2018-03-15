@@ -4,3 +4,4 @@ log/*
 tmp/*
 Dockerfile
 README.md
+test/html_reports/*
