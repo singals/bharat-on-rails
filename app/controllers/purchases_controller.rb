@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PurchasesController < ApplicationController
+  include PurchasesHelper
+
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
 
   # GET /purchases
@@ -31,12 +33,11 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
-    # TODO adjust stock
-    # TODO adjust creditor's account for CREDIT purchase
     @purchase = Purchase.new(purchase_params)
+    # TODO adjust creditor's account for CREDIT purchase
 
     respond_to do |format|
-      if @purchase.save
+      if save_new_purchase_order(@purchase)
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
       else
