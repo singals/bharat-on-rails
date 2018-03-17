@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def link_to_add_fields(name, f, association, opts={})
+  def link_to_add_fields(name, form, association, _opts = {})
     # creaate a new object given the form object, and the association name
     # binding.pry
-    new_object = f.object.class.reflect_on_association(association).klass.new
+    new_object = form.object.class.reflect_on_association(association).klass.new
 
     # call the fields_for function and render the fields_for to a string
     # child index is set to "new_#{association}, which would then later
     # be replaced in in javascript function add_fields
-    fields = f.fields_for(association,
-                          new_object,
-                          :child_index => "new_#{association}") do |builder|
+    fields = form.fields_for(association,
+                             new_object,
+                             child_index: "new_#{association}") do |builder|
       # render partial: _task_fields.html.erb
       render(association.to_s.singularize + "_fields", f: builder)
     end
@@ -24,7 +24,7 @@ module ApplicationHelper
                      class: 'btn btn-success')
   end
 
-  def link_to_function(name, js, opts={})
-    link_to name, '#', opts.merge({onclick: js})
+  def link_to_function(name, script, opts = {})
+    link_to name, '#', opts.merge(onclick: script)
   end
 end
