@@ -1,0 +1,23 @@
+<p>
+  <hr>
+  <div class="field">
+    <%= f.label :article_id %>
+    <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
+  </div>
+  <div class="field" style="display: none">
+    <%= f.label :sale_id %>
+    <%= f.text_field :sale_id, id: :sale_item_sale_id %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price, :onChange=> "calculate_amount()", :class => 'sale_item_price' %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, :onChange=> "calculate_amount()", :class => 'sale_item_quantity' %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount, :class=> "form-control", :readonly=> true, :class => 'sale_item_amount' %>
+  </div>
+</p>

@@ -31,36 +31,15 @@
     <%= form.text_field :phone, id: :sale_phone %>
   </div>
 
-  <!--TODO add option to add another sale-item-->
-  <%= form.fields_for :sale_items do |f| %>
-    <div id="sale_item">
-      <hr>
-        <h3>Add a sale item</h3>
-        <div class="field">
-          <%= f.label :article_id %>
-          <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
-        </div>
-        <div class="field" style="display: none">
-          <%= f.label :sale_id %>
-          <%= f.text_field :sale_id, id: :sale_item_sale_id %>
-        </div>
-        <div class="field">
-          <%= f.label :price %>
-          <%= f.text_field :price, id: :sale_item_price, :onChange=> "calculate_amount()" %>
-        </div>
-        <div class="field">
-          <%= f.label :quantity %>
-          <%= f.text_field :quantity, id: :sale_item_quantity, :onChange=> "calculate_amount()" %>
-        </div>
-        <div class="field">
-          <%= f.label :amount %>
-          <%= f.text_field :amount, id: :sale_item_amount, :class=> "form-control", :readonly=> true %>
-        </div>
-        <br>
+  <div class = 'sale_item'>
+    <div class='tasks-sub-form'>
+      <%= form.fields_for :sale_items do |builder| %>
+        <%= render "sale_item_fields", :f => builder %>
+      <% end %>
     </div>
-  <% end %>
-
-  <hr>
+    <%= link_to_add_fields("Add Sale Item", form, :sale_items) %>
+    <hr>
+  </div>
 
   <div class="field">
     <%= form.label :total_amount %>

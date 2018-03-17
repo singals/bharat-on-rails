@@ -15,3 +15,17 @@
 //= require_tree .
 //= require jquery3
 //= require jquery_ujs
+
+function add_fields(link, association, content) {
+    console.log("invoked");
+    var new_id = new Date().getTime();
+
+    // find the new_ + "association" that was defined in Rails helper
+    var regexp = new RegExp("new_" + association, "g");
+    console.log(regexp);
+    console.log(new_id);
+
+    // find the container and append in the sub field content
+    $(link).prev().append(content.replace(regexp, new_id));
+    return false;
+}
