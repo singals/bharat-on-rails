@@ -1,12 +1,14 @@
-@toggle_purchase_item = () -> $("#purchase_item").toggle()
-
 @calculate_cost = () ->
-  quantity = $("#purchase_item_quantity").val()
-  price = $("#purchase_item_price").val()
-  item_cost = quantity * price
-  $("#purchase_item_cost").val(item_cost)
-  purchase_items_costs = $('*[id*=purchase_item_cost]:visible')
+  quantities = $(".purchase_item_quantity")
+  prices = $(".purchase_item_price")
+  costs = $(".purchase_item_cost")
+
   total_cost = 0;
-  for item in purchase_items_costs
-    total_cost = parseFloat(total_cost) + parseFloat(item.value)
+  maxIndexVal = quantities.length - 1
+
+  for i in [0..maxIndexVal]
+    cost = quantities[i].value * prices[i].value
+    costs[i].value = cost
+    total_cost = parseFloat(total_cost) + parseFloat(cost)
+
   $("#purchase_total_cost_field").val(total_cost)

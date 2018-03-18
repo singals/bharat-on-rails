@@ -1,5 +1,3 @@
-@toggle_sale_item = () -> $("#sale_item").toggle()
-
 @calculate_amount = () ->
   quantities = $(".sale_item_quantity")
   prices = $(".sale_item_price")

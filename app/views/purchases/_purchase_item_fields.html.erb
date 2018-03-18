@@ -1,0 +1,24 @@
+<p>
+  <hr>
+  <h3>Add a purchase item</h3>
+  <div class="field">
+    <%= f.label :article_id %>
+    <%= f.collection_select :article_id, @articles, :id, :name, prompt: true %>
+  </div>
+  <div class="field" style="display: none">
+    <%= f.label :purchase_id %>
+    <%= f.text_field :purchase_id, id: :purchase_item_purchase_id %>
+  </div>
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price, id: :purchase_item_price, :onChange=> "calculate_cost()", :class => 'purchase_item_price' %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, id: :purchase_item_quantity, :onChange=> "calculate_cost()", :class => 'purchase_item_quantity' %>
+  </div>
+  <div class="field">
+    <%= f.label :cost %>
+    <%= f.text_field :cost, id: :purchase_item_cost, :class=> "form-control", :readonly=> true, :class => 'purchase_item_cost' %>
+  </div>
+</p>

@@ -29,16 +29,15 @@ This projects uses the following:
 
 
 ### TODO (functionalities)
-1. Allow multiple sale/purchase item to be created on sale/purchase creation.
-2. Implement Profit and Loss Account.
-3. Add UI tests using Capybara or something else.
-4. Improve test coverage, add End-End tests
-5. Use JQuery-UI to make the UI look better
-6. Add name to Sale model
-7. Default village, phone and name for Credit sale on debtor selection.
-8. Add nature of transaction (Cash/Credit) for Purchase and maintain account
-9. Implement Accounts functionality for debtors and creditors.
-10. Option to print bill
-11. Authentication + Authorization
-12. Localisation
-13. Payment support for Credit & Debit Cards, UPI
+1. Implement Profit and Loss Account.
+2. Add UI tests using Capybara or something else.
+3. Improve test coverage, add End-End tests
+4. Use JQuery-UI to make the UI look better
+5. Add name to Sale model
+6. Default village, phone and name for Credit sale on debtor selection.
+7. Add nature of transaction (Cash/Credit) for Purchase and maintain account
+8. Implement Accounts functionality for debtors and creditors.
+9. Option to print bill
+10. Authentication + Authorization
+11. Localisation
+12. Payment support for Credit & Debit Cards, UPI
