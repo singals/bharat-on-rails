@@ -25,7 +25,6 @@
   <%= @purchase.total_cost %>
 </p>
 
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>
 
 <br/>
@@ -40,7 +39,6 @@
       <th>Quantity</th>
       <th>Price</th>
       <th>Cost</th>
-      <th colspan="1"></th>
     </tr>
     <%= render @purchase.purchase_items, :onChange=>"set_total_cost"%>
   </table>

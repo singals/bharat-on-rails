@@ -31,23 +31,22 @@ class SalesController < ApplicationController
     @articles = Article.where(is_active: true)
     @sale.sale_items.build
 
-
     @debtors.each do |debtor|
       debtor.name += ' - ' + debtor.village
     end
   end
 
   # GET /sales/1/edit
-  def edit
-    @transaction_nature = ['CASH', 'CREDIT']
-    @articles = Article.where(is_active: true)
-    @debtors = Debtor.where(is_active: true)
-    @sale_items = SaleItem.where(sale_id: params[:id])
-
-    @debtors.each do |debtor|
-      debtor.name += ' - ' + debtor.village
-    end
-  end
+  # def edit
+  #   @transaction_nature = ['CASH', 'CREDIT']
+  #   @articles = Article.where(is_active: true)
+  #   @debtors = Debtor.where(is_active: true)
+  #   @sale_items = SaleItem.where(sale_id: params[:id])
+  #
+  #   @debtors.each do |debtor|
+  #     debtor.name += ' - ' + debtor.village
+  #   end
+  # end
 
   # POST /sales
   # POST /sales.json
@@ -66,19 +65,19 @@ class SalesController < ApplicationController
 
   # PATCH/PUT /sales/1
   # PATCH/PUT /sales/1.json
-  def update
-    # TODO adjust stock and P&L account
-    # TODO adjust debtor's account for CREDIT sale
-    respond_to do |format|
-      if @sale.update(sale_params)
-        format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
-        format.json { render :show, status: :ok, location: @sale }
-      else
-        format.html { render :edit }
-        format.json { render json: @sale.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   # TODO adjust stock and P&L account
+  #   # TODO adjust debtor's account for CREDIT sale
+  #   respond_to do |format|
+  #     if @sale.update(sale_params)
+  #       format.html { redirect_to @sale, notice: 'Sale was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @sale }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @sale.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /sales/1
   # DELETE /sales/1.json

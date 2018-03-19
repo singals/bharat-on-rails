@@ -26,8 +26,6 @@ village one
 
 Show
 
-Edit
-
 Destroy
 
 CASH
@@ -41,8 +39,6 @@ village two
 460.0
 
 Show
-
-Edit
 
 Destroy
 

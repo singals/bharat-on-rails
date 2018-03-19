@@ -33,7 +33,6 @@
       <th>Quantity</th>
       <th>Price</th>
       <th>Amount</th>
-      <th colspan="1"></th>
     </tr>
     <%= render @sale.sale_items, :onChange=>"set_total_cost"%>
   </table>
@@ -46,5 +45,4 @@
   <%= @sale.total_amount %>
 </p>
 
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
 <%= link_to 'Back', sales_path %>
