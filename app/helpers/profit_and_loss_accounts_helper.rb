@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 module ProfitAndLossAccountsHelper
-  # require 'date'
-
-
   def get_financial_year
     @months_in_next_year = 4..12
     @months_in_current_year = 1..3

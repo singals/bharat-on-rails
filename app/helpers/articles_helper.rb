@@ -25,6 +25,7 @@ module ArticlesHelper
 
     new_qty = current_qty - qty_sold
 
-    article.update(availabe_units: new_qty)
+    persisted = article.update(availabe_units: new_qty)
+    persisted ? article : nil
   end
 end

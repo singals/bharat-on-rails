@@ -52,7 +52,6 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    # TODO adjust P&L account
     # TODO adjust debtor's account for CREDIT sale
 
     @sale = Sale.new(sale_params)
