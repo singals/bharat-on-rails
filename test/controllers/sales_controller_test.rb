@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class SalesControllerTest < ActionDispatch::IntegrationTest
+class SalesControllerTest < ActionDispatch::IntegrationTest # rubocop:disable Metrics/ClassLength
   setup do
     @sale = sales(:one)
   end
