@@ -55,4 +55,30 @@ class SalesHelperTest < ActiveSupport::TestCase
     assert_equal 800, latest_pnl_record.amount
     assert_not_empty latest_pnl_record.financial_year
   end
+
+  test "shall not save a credit sale without debtor-id" do
+    @sale = Sale.new(nature: 'CREDIT', village: 'Kurukshetra', phone: '9876543210', total_amount: 5_800)
+    @sale.sale_items = [@sale_item1, @sale_item2]
+
+    latest_sale = Sale.last
+    initial_pnl_balance = ProfitAndLossAccount.last.current_balance
+    save_new_sales_order(@sale)
+
+    assert_equal latest_sale, Sale.last, "Should not persist a credit sale without debtor-id"
+    assert_equal initial_pnl_balance, ProfitAndLossAccount.last.current_balance, "shall not add any P&L record"
+  end
+
+  test "shall set the village and phone number for a credit sale" do
+    @sale = Sale.new(nature: 'CREDIT', village: 'Kurukshetra', phone: '9876543210', debtor_id: 980190962, total_amount: 5_800)
+    @sale.sale_items = [@sale_item1, @sale_item2]
+
+    save_new_sales_order(@sale)
+
+    latest_sale = Sale.last
+    assert_equal latest_sale.nature, 'CREDIT'
+    assert_equal latest_sale.village, 'village one'
+    assert_equal latest_sale.phone, '9876543210'
+    assert_equal latest_sale.total_amount, 5_800
+    assert_equal latest_sale.sale_items.size, 2
+  end
 end

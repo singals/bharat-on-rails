@@ -52,10 +52,7 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    # TODO adjust debtor's account for CREDIT sale
-
     @sale = Sale.new(sale_params)
-
     respond_to do |format|
       if save_new_sales_order(@sale)
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
