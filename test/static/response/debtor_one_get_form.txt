@@ -14,6 +14,27 @@
   Is active:
   true
 
-Edit |
+Deposits
+
+Sales
+
+Date
+
+Amount
+
+2018-03-20
+
+1.5
+
+Date
+
+Amount
+
+2018-03-20
+
+235.0
+
+ View 
+
 Back
 

@@ -20,5 +20,39 @@
   <%= @debtor.is_active %>
 </p>
 
-<%= link_to 'Edit', edit_debtor_path(@debtor) %> |
-<%= link_to 'Back', debtors_path %>
+  <table style="width: 100%;" border="1">
+    <div style="width: 100%;">
+      <tr>
+        <th>Deposits</th>
+        <th>Sales</th>
+      </tr>
+      <tr>
+        <div style="float:left; width: 50%">
+          <td>
+            <table id="deposits_table">
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+              <%= render @debtor.deposits %>
+            </table>
+          </td>
+        </div>
+        <div style="float:right; width: 50%">
+          <td>
+            <table id="sales_table">
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th colspan="1"></th>
+              </tr>
+              <%= render @debtor.sales %>
+            </table>
+          </td>
+        </div>
+      </tr>
+    </div>
+  </table>
+
+<br/>
+<%= link_to 'Back', debtors_path, style: 'float:bottom' %>
