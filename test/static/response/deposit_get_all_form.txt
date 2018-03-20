@@ -1,0 +1,38 @@
+
+
+    Bharat
+
+Deposits
+
+Nature
+
+Amount
+
+Debtor
+
+MyString
+
+1.5
+
+John Doe - village one
+
+Show
+
+Edit
+
+Destroy
+
+MyString
+
+1.5
+
+Peter Dinklage - village two
+
+Show
+
+Edit
+
+Destroy
+
+New Deposit
+

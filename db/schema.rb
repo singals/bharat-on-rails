@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802065900) do
+ActiveRecord::Schema.define(version: 20180320070345) do # rubocop:disable Metrics/BlockLength
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170802065900) do
     t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "deposits", force: :cascade do |t|
+    t.string "nature"
+    t.float "amount"
+    t.bigint "debtor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["debtor_id"], name: "index_deposits_on_debtor_id"
   end
 
   create_table "profit_and_loss_accounts", force: :cascade do |t|
@@ -93,6 +102,7 @@ ActiveRecord::Schema.define(version: 20170802065900) do
     t.index ["debtor_id"], name: "index_sales_on_debtor_id"
   end
 
+  add_foreign_key "deposits", "debtors"
   add_foreign_key "purchase_items", "articles"
   add_foreign_key "purchase_items", "purchases"
   add_foreign_key "sale_items", "articles"

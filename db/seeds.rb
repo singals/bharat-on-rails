@@ -22,5 +22,8 @@ sale_two = Sale.create({nature: 'CREDIT', debtor_id: 1, village: 'Navarsi', phon
 sale_two.sale_items.create({article_id: 1, quantity: 2, price: 270, amount: 540})
 sale_two.sale_items.create({article_id: 3, quantity: 2, price: 320, amount: 640})
 
+deposit_one = Deposit.create([{nature: 'From Debtor', amount: 500, debtor_id: 1},
+                              {nature: 'From Debtor', amount: 100, debtor_id: 1}])
+
 ProfitAndLossAccount.create([{description: 'Sold article 1', amount: 20, current_balance: 20, financial_year: '2017-2018'},
                                       {description: 'Sale-return article 1', amount: -20, current_balance: 0, financial_year: '2017-2018'}])

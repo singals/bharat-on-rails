@@ -1,0 +1,16 @@
+
+
+    Bharat
+
+  Nature:
+  MyString
+
+  Debtor:
+  John Doe - village one
+
+  Amount:
+  1.5
+
+Edit |
+Back
+

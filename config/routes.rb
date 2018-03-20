@@ -2,6 +2,7 @@
 
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  resources :deposits
   resources :profit_and_loss_accounts
   resources :sales do
     resources :sale_items
