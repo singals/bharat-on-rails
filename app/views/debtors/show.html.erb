@@ -15,6 +15,7 @@
   <%= @debtor.phone %>
 </p>
 
+<%# TODO allow to enter interest %>
 <p>
   <strong>Is active:</strong>
   <%= @debtor.is_active %>
@@ -41,6 +42,7 @@
         <div style="float:right; width: 50%">
           <td>
             <table id="sales_table">
+              <!--add column for interest-->
               <tr>
                 <th>Date</th>
                 <th>Amount</th>
@@ -53,6 +55,6 @@
       </tr>
     </div>
   </table>
-
+<%# TODO show total balance (including interest), allow to settle %>
 <br/>
 <%= link_to 'Back', debtors_path, style: 'float:bottom' %>

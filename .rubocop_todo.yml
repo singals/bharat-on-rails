@@ -50,8 +50,6 @@ Layout/CommentIndentation:
 # Cop supports --auto-correct.
 Layout/EmptyLines:
   Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
     - 'app/controllers/sales_controller.rb'
     - 'app/helpers/profit_and_loss_accounts_helper.rb'
     - 'bin/setup'
@@ -65,9 +63,7 @@ Layout/EmptyLinesAroundAccessModifier:
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/debtors_controller.rb'
     - 'app/controllers/profit_and_loss_accounts_controller.rb'
-    - 'app/controllers/purchase_items_controller.rb'
     - 'app/controllers/purchases_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
     - 'app/controllers/sales_controller.rb'
 
 # Offense count: 1
@@ -96,21 +92,6 @@ Layout/IndentationConsistency:
     - 'app/controllers/purchases_controller.rb'
     - 'app/controllers/sales_controller.rb'
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: aligned, indented
-Layout/MultilineOperationIndentation:
-  Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-
 # Offense count: 12
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment.
@@ -118,7 +99,6 @@ Layout/SpaceAroundOperators:
   Exclude:
     - 'app/controllers/articles_controller.rb'
     - 'app/controllers/debtors_controller.rb'
-    - 'app/controllers/purchase_items_controller.rb'
     - 'test/controllers/profit_and_loss_accounts_controller_test.rb'
 
 # Offense count: 1
@@ -198,12 +178,6 @@ Naming/AccessorMethodName:
   Exclude:
     - 'app/helpers/profit_and_loss_accounts_helper.rb'
 
-# Offense count: 2
-Naming/ClassAndModuleCamelCase:
-  Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
-
 # Offense count: 4
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: snake_case, camelCase
@@ -234,15 +208,7 @@ Style/ClassAndModuleChildren:
 Style/CommentAnnotation:
   Exclude:
     - 'app/controllers/purchases_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
     - 'app/controllers/sales_controller.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/DefWithParentheses:
-  Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
 
 # Offense count: 33
 Style/Documentation:
@@ -275,8 +241,6 @@ Style/ExpandPathArguments:
 # SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
 Style/HashSyntax:
   Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
     - 'app/models/debtor.rb'
     - 'app/models/purchase.rb'
     - 'app/models/sale.rb'
@@ -296,13 +260,6 @@ Style/MixinUsage:
   Exclude:
     - 'bin/setup'
     - 'bin/update'
-
-# Offense count: 4
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
-    - 'app/controllers/sale_items_controller.rb'
 
 # Offense count: 5
 # Cop supports --auto-correct.
@@ -333,12 +290,6 @@ Style/NumericLiterals:
 Style/PercentLiteralDelimiters:
   Exclude:
     - 'config/spring.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantParentheses:
-  Exclude:
-    - 'app/controllers/purchase_items_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.

@@ -129,16 +129,6 @@ class SalesControllerTest < ActionDispatch::IntegrationTest # rubocop:disable Me
     assert_response :success
   end
 
-  # test "should get edit" do
-  #   get edit_sale_url(@sale)
-  #   assert_response :success
-  # end
-
-  # test "should update sale" do
-  #   patch sale_url(@sale), params: { sale: { debtor_id: @sale.debtor_id, nature: @sale.nature, phone: @sale.phone, total_amount: @sale.total_amount, village: @sale.village } }
-  #   assert_redirected_to sale_url(@sale)
-  # end
-
   test "should destroy sale" do
     assert_difference('Sale.count', -1) do
       delete sale_url(@sale)

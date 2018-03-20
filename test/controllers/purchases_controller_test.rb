@@ -76,16 +76,6 @@ class PurchasesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_purchase_url(@purchase)
-    assert_response :success
-  end
-
-  test "should update purchase" do
-    patch purchase_url(@purchase), params: { purchase: { city: @purchase.city, invoice_number: @purchase.invoice_number, phone: @purchase.phone, seller_name: @purchase.seller_name, total_cost: @purchase.total_cost } }
-    assert_redirected_to purchase_url(@purchase)
-  end
-
   test "should destroy purchase" do
     assert_difference('Purchase.count', -1) do
       delete purchase_url(@purchase)

@@ -24,12 +24,6 @@ class PurchasesController < ApplicationController
     @articles = Article.where(is_active: true)
   end
 
-  # GET /purchases/1/edit
-  def edit
-    @articles = Article.where(is_active: true)
-    @purchase_items = PurchaseItem.where(purchase_id: params[:id])
-  end
-
   # POST /purchases
   # POST /purchases.json
   def create
@@ -42,22 +36,6 @@ class PurchasesController < ApplicationController
         format.json { render :show, status: :created, location: @purchase }
       else
         format.html { render :new }
-        format.json { render json: @purchase.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /purchases/1
-  # PATCH/PUT /purchases/1.json
-  def update
-    # TODO adjust stock
-    # TODO adjust creditor's account for CREDIT purchase
-    respond_to do |format|
-      if @purchase.update(purchase_params)
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
-        format.json { render :show, status: :ok, location: @purchase }
-      else
-        format.html { render :edit }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end
