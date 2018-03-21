@@ -9,8 +9,8 @@ class ProfitAndLossAccountsControllerTest < ActionDispatch::IntegrationTest
 
   # custom
   test "should be able to create an P&L entry for Profit" do
-    post'/profit_and_loss_accounts', :params => {:profit_and_loss_account => {:description =>'Test', :amount => '100',
-                                                        :current_balance => '100', :financial_year => '2017-2018'}}
+    post '/profit_and_loss_accounts', params: { profit_and_loss_account: { description: 'Test', amount: '100',
+                                                                           current_balance: '100', financial_year: '2017-2018' } }
 
     assert_response :redirect
     @latest_pl = ProfitAndLossAccount.order('created_at').last
@@ -22,22 +22,22 @@ class ProfitAndLossAccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should be able to create an P&L entry for Loss" do
-    post '/profit_and_loss_accounts', :params => {:profit_and_loss_account => {:description =>'Test return', :amount => '-100',
-                                                                              :current_balance => '0', :financial_year => '2017-2018'}}
+    post '/profit_and_loss_accounts', params: { profit_and_loss_account: { description: 'Test return', amount: '-100',
+                                                                           current_balance: '0', financial_year: '2017-2018' } }
 
     assert_response :redirect
     @latest_pl = ProfitAndLossAccount.order('created_at').last
 
     assert_equal 'Test return', @latest_pl.description, "Description does not match"
-    assert_equal -100, @latest_pl.amount, "Amount does not match"
+    assert_equal(-100, @latest_pl.amount, "Amount does not match")
     assert_equal 0, @latest_pl.current_balance, "Current balance does not match"
     assert_equal '2017-2018', @latest_pl.financial_year, "Financial year does not match"
   end
 
   test "should be able to delete an P&L entry for Loss" do
     # Create a temporary P&L record
-    post '/profit_and_loss_accounts', :params => {:profit_and_loss_account => {:description =>'Test return', :amount => '-100',
-                                                                               :current_balance => '0', :financial_year => '2017-2018'}}
+    post '/profit_and_loss_accounts', params: { profit_and_loss_account: { description: 'Test return', amount: '-100',
+                                                                           current_balance: '0', financial_year: '2017-2018' } }
 
     assert_response :redirect
     @latest_pl = ProfitAndLossAccount.order('created_at').last
@@ -51,15 +51,15 @@ class ProfitAndLossAccountsControllerTest < ActionDispatch::IntegrationTest
 
   test "should be able to edit an P&L entry for Loss" do
     # Create a temporary P&L record
-    post '/profit_and_loss_accounts', :params => {:profit_and_loss_account => {:description =>'Test return', :amount => '-100',
-                                                                               :current_balance => '0', :financial_year => '2017-2018'}}
+    post '/profit_and_loss_accounts', params: { profit_and_loss_account: { description: 'Test return', amount: '-100',
+                                                                           current_balance: '0', financial_year: '2017-2018' } }
     assert_response :redirect
     @latest_pl = ProfitAndLossAccount.order('created_at').last
 
     # Edit the newly created P&L record
     put '/profit_and_loss_accounts/' + @latest_pl.id.to_s,
-        :params => {:profit_and_loss_account => {:description =>'Updated description', :amount => '100',
-                                                                                                      :current_balance => '100', :financial_year => '2018-2019'}}
+        params: { profit_and_loss_account: { description: 'Updated description', amount: '100',
+                                             current_balance: '100', financial_year: '2018-2019' } }
     assert_response :redirect
     @latest_pl = ProfitAndLossAccount.order('created_at').last
 

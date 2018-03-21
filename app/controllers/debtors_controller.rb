@@ -22,14 +22,13 @@ class DebtorsController < ApplicationController
   end
 
   # GET /debtors/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /debtors
   # POST /debtors.json
   def create
-    my_params = debtor_params()
-    active_on_creation = {'is_active'=> true}
+    my_params = debtor_params
+    active_on_creation = { 'is_active' => true }
     my_params = active_on_creation.merge(my_params)
     @debtor = Debtor.new(my_params)
 
@@ -61,7 +60,7 @@ class DebtorsController < ApplicationController
   # DELETE /debtors/1
   # DELETE /debtors/1.json
   def destroy
-    deactivate_on_deletion = {'is_active'=> false}
+    deactivate_on_deletion = { 'is_active' => false }
     @debtor.update(deactivate_on_deletion)
     respond_to do |format|
       format.html { redirect_to debtors_url, notice: 'Debtor was successfully destroyed.' }
@@ -70,13 +69,14 @@ class DebtorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_debtor
-      @debtor = Debtor.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def debtor_params
-      params.require(:debtor).permit(:name, :village, :phone, :is_active)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_debtor
+    @debtor = Debtor.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def debtor_params
+    params.require(:debtor).permit(:name, :village, :phone, :is_active)
+  end
 end

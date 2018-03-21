@@ -11,8 +11,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   # GET /articles/1.json
-  def show
-  end
+  def show; end
 
   # GET /articles/new
   def new
@@ -20,14 +19,13 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /articles
   # POST /articles.json
   def create
-    my_params = article_params()
-    active_on_creation = {'is_active'=> true}
+    my_params = article_params
+    active_on_creation = { 'is_active' => true }
     my_params = active_on_creation.merge(my_params)
     @article = Article.new(my_params)
 
@@ -59,7 +57,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    deactivate_on_deletion = {'is_active'=> false}
+    deactivate_on_deletion = { 'is_active' => false }
     @article.update(deactivate_on_deletion)
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
@@ -68,13 +66,14 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:name, :package_quantity, :availabe_units, :mrp, :cost, :is_active)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_params
+    params.require(:article).permit(:name, :package_quantity, :availabe_units, :mrp, :cost, :is_active)
+  end
 end

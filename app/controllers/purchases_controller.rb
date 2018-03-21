@@ -28,7 +28,7 @@ class PurchasesController < ApplicationController
   # POST /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
-    # TODO adjust creditor's account for CREDIT purchase
+    # TODO: adjust creditor's account for CREDIT purchase
 
     respond_to do |format|
       if save_new_purchase_order(@purchase)
@@ -44,7 +44,7 @@ class PurchasesController < ApplicationController
   # DELETE /purchases/1
   # DELETE /purchases/1.json
   def destroy
-    # TODO adjust stock
+    # TODO: adjust stock
     # TODO adjust creditor's account for CREDIT purchase
     @purchase.destroy
     respond_to do |format|
@@ -54,15 +54,16 @@ class PurchasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_purchase
-      @purchase = Purchase.find(params[:id])
-      @purchase.purchase_items ||= []
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def purchase_params
-      params.require(:purchase).permit(:seller_name, :city, :phone, :invoice_number, :total_cost,
-             purchase_items_attributes: [:article_id, :purchase_id, :quantity, :price, :cost])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_purchase
+    @purchase = Purchase.find(params[:id])
+    @purchase.purchase_items ||= []
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def purchase_params
+    params.require(:purchase).permit(:seller_name, :city, :phone, :invoice_number, :total_cost,
+                                     purchase_items_attributes: [:article_id, :purchase_id, :quantity, :price, :cost])
+  end
 end

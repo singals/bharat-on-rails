@@ -25,7 +25,7 @@ module SalesHelper
     latest_pl_record = ProfitAndLossAccount.last
     new_balance = latest_pl_record.current_balance + profit
     ProfitAndLossAccount.new(description: 'From sale ' + sale.id.to_s, amount: profit,
-                             current_balance: new_balance, financial_year: get_financial_year)
+                             current_balance: new_balance, financial_year: generate_current_financial_year)
   end
 
   def update_article_and_calculate_profit(sale)

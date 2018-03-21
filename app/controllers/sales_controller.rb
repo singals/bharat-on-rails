@@ -39,7 +39,7 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    # TODO initialize is_settled to false for Credit sales
+    # TODO: initialize is_settled to false for Credit sales
     @sale = Sale.new(sale_params)
     respond_to do |format|
       if save_new_sales_order(@sale)
@@ -55,7 +55,7 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
-    # TODO adjust stock and P&L account
+    # TODO: adjust stock and P&L account
     # TODO adjust debtor's account for CREDIT sale
     @sale.destroy
     respond_to do |format|
@@ -65,14 +65,15 @@ class SalesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sale
-      @sale = Sale.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sale_params
-      params.require(:sale).permit(:nature, :debtor_id, :village, :phone, :total_amount,
-        sale_items_attributes: [:article_id, :quantity, :price, :amount])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sale
+    @sale = Sale.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sale_params
+    params.require(:sale).permit(:nature, :debtor_id, :village, :phone, :total_amount,
+                                 sale_items_attributes: [:article_id, :quantity, :price, :amount])
+  end
 end

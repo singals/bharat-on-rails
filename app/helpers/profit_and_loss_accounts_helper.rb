@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ProfitAndLossAccountsHelper
-  def get_financial_year
+  def generate_current_financial_year
     @months_in_next_year = 4..12
     @months_in_current_year = 1..3
     today = Date.today.to_s

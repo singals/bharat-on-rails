@@ -12,7 +12,7 @@ class PurchasesControllerTest < ActionDispatch::IntegrationTest
     get('/purchases')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/purchase_get_all_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/purchase_get_all_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
@@ -20,15 +20,15 @@ class PurchasesControllerTest < ActionDispatch::IntegrationTest
     get('/purchases/980190962')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    expected_response = Loofah.fragment(File.read Rails.root + 'test/static/response/purchase_one_get_form.txt').to_text
+    expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/purchase_one_get_form.txt')).to_text
     assert_equal expected_response, actual_response, 'response does not match'
   end
 
   test "should be able to record a new purchase" do
-    post '/purchases', :params => {:purchase => {:seller_name => 'test seller', :city => 'Kurukshetra', :phone => '9876543210', :invoice_number => '123',
-                   :purchase_items_attributes => [{ article_id: 980190962, price: 210, quantity: 300, cost: 63_000 },
-                                                  { article_id: 113629430, price: 150, quantity: 100, cost: 15_000 }],
-                           total_cost: 78_000 } }
+    post '/purchases', params: { purchase: { seller_name: 'test seller', city: 'Kurukshetra', phone: '9876543210', invoice_number: '123',
+                                             purchase_items_attributes: [{ article_id: 980190962, price: 210, quantity: 300, cost: 63_000 },
+                                                                         { article_id: 113629430, price: 150, quantity: 100, cost: 15_000 }],
+                                             total_cost: 78_000 } }
 
     assert_response :redirect
     @latest_purchase = Purchase.order('created_at').last
