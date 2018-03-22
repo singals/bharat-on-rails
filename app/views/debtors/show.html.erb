@@ -15,10 +15,9 @@
   <%= @debtor.phone %>
 </p>
 
-<%# TODO allow to enter interest %>
 <p>
-  <strong>Is active:</strong>
-  <%= @debtor.is_active %>
+  <strong>Interest(per month)</strong>
+  <%= text_field :temp, :interest, :onChange=> "calculate_interest()" %>
 </p>
 
   <table style="width: 100%;" border="1">
@@ -34,6 +33,7 @@
               <tr>
                 <th>Date</th>
                 <th>Amount</th>
+                <th>Interest</th>
               </tr>
               <%= render @debtor.deposits %>
             </table>
@@ -42,10 +42,10 @@
         <div style="float:right; width: 50%">
           <td>
             <table id="sales_table">
-              <!--add column for interest-->
               <tr>
                 <th>Date</th>
                 <th>Amount</th>
+                <th>Interest</th>
                 <th colspan="1"></th>
               </tr>
               <%= render @debtor.sales %>
@@ -55,6 +55,11 @@
       </tr>
     </div>
   </table>
-<%# TODO show total balance (including interest), allow to settle %>
+<br/>
+<p>
+  <strong>Total payable</strong>
+  <%= text_field :final, :amount_to_settle %>
+</p>
+<%# TODO allow to settle %>
 <br/>
 <%= link_to 'Back', debtors_path, style: 'float:bottom' %>

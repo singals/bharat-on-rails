@@ -11,8 +11,7 @@
   Phone:
   1234567890
 
-  Is active:
-  false
+  Interest(per month)
 
 Deposits
 
@@ -22,6 +21,8 @@ Date
 
 Amount
 
+Interest
+
 xxx
 
 1.5
@@ -29,6 +30,10 @@ xxx
 Date
 
 Amount
+
+Interest
+
+  Total payable
 
 Back
 

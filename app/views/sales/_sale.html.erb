@@ -1,5 +1,6 @@
 <tr>
-  <td><%= sale.created_at.to_date %></td>
+  <td><%= sale.created_at.to_date.strftime("%d-%m-%Y") %></td>
   <td><%= sale.total_amount %></td>
+  <td></td>
   <td> <%= link_to 'View', '/sales/' + sale.id.to_s, method: :get %> </td>
 </tr>

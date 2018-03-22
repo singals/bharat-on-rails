@@ -11,8 +11,7 @@
   Phone:
   9876543210
 
-  Is active:
-  true
+  Interest(per month)
 
 Deposits
 
@@ -22,6 +21,8 @@ Date
 
 Amount
 
+Interest
+
 xxx
 
 1.5
@@ -30,11 +31,15 @@ Date
 
 Amount
 
+Interest
+
 xxx
 
 235.0
 
  View 
+
+  Total payable
 
 Back
 

@@ -58,7 +58,7 @@ class DebtorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should be able to get a debtor by id" do
     today = Date.today
-    today_str = today.strftime("%Y-%m-%d")
+    today_str = today.strftime("%d-%m-%Y")
 
     get('/debtors/980190962')
     assert_response :success

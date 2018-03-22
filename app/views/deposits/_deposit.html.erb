@@ -1,4 +1,5 @@
 <tr>
-  <td><%= deposit.created_at.to_date %></td>
+  <td><%= deposit.created_at.to_date.strftime("%d-%m-%Y") %></td>
   <td><%= deposit.amount %></td>
+  <td></td>
 </tr>
