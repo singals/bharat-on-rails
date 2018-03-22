@@ -22,7 +22,6 @@
 
     interest = amount * (rate * 0.01 ) * months_diff
     interest = interest.toFixed()
-    console.log(interest)
 
     sale_records[x+2].innerHTML = interest
     total_payables = parseFloat(total_payables) + parseFloat(amount) + parseFloat(interest)
@@ -46,7 +45,6 @@
 
     interest = amount * (rate * 0.01 ) * months_diff
     interest = interest.toFixed()
-    console.log(interest)
 
     deposits_records[x+2].innerHTML = interest
     total_payables = parseFloat(total_payables) - parseFloat(amount) - parseFloat(interest)

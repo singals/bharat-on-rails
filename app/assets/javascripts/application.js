@@ -17,7 +17,6 @@
 //= require jquery_ujs
 
 function add_fields(link, association, content) {
-    console.log("invoked");
     var new_id = new Date().getTime();
 
     // find the new_ + "association" that was defined in Rails helper
