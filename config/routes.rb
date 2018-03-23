@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :purchase_items
   end
 
-  resources :debtors
+  resources :debtors do
+    resources :deposits
+  end
   resources :articles
 end

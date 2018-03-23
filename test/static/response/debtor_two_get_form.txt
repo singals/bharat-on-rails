@@ -35,5 +35,15 @@ Interest
 
   Total payable
 
+Settle by deposit:
+
+    Nature
+    From Debtor
+
+    Debtor
+    Peter Dinklage
+
+    Amount
+
 Back
 

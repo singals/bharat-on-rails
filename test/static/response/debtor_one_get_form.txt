@@ -41,5 +41,15 @@ xxx
 
   Total payable
 
+Settle by deposit:
+
+    Nature
+    From Debtor
+
+    Debtor
+    John Doe
+
+    Amount
+
 Back
 

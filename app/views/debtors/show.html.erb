@@ -55,11 +55,32 @@
       </tr>
     </div>
   </table>
-<br/>
 <p>
   <strong>Total payable</strong>
-  <%= text_field :final, :amount_to_settle %>
+  <%= text_field :final, :amount_to_settle, :readonly=> true %>
 </p>
-<%# TODO allow to settle %>
 <br/>
+<h2>Settle by deposit:</h2>
+<%= form_for([@debtor, @debtor.deposits.build]) do |form| %>
+  <div class="field">
+    <%= form.label :nature %>
+    <% @transaction_nature=['From Debtor'] %>
+    <%= form.select(:nature, @transaction_nature.map { |value| [ value, value ] }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :debtor_id %>
+    <% @debtors=[@debtor] %>
+    <%= form.collection_select :debtor_id, @debtors, :id, :name, prompt: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, id: :deposit_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 <%= link_to 'Back', debtors_path, style: 'float:bottom' %>
