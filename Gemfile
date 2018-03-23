@@ -48,7 +48,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'loofah', '~> 2.0', '>= 2.0.3'
+  gem 'loofah', '~> 2.2', '>= 2.2.2'
   gem 'minitest-reporters', '~> 1.1', '>= 1.1.11'
 end
 
