@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class DepositsController < ApplicationController
+  include DepositsHelper
   before_action :set_deposit, only: [:show, :edit, :update, :destroy]
 
   # GET /deposits
@@ -38,7 +39,7 @@ class DepositsController < ApplicationController
     @deposit = Deposit.new(deposit_params)
 
     respond_to do |format|
-      if @deposit.save
+      if save_deposit(@deposit)
         format.html { redirect_to @deposit, notice: 'Deposit was successfully created.' }
         format.json { render :show, status: :created, location: @deposit }
       else
@@ -82,6 +83,6 @@ class DepositsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def deposit_params
-    params.require(:deposit).permit(:nature, :amount, :debtor_id)
+    params.require(:deposit).permit(:nature, :amount, :debtor_id, :mark_settled, :is_settled)
   end
 end

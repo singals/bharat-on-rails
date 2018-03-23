@@ -45,5 +45,7 @@ Settle by deposit:
 
     Amount
 
+    Mark settled
+
 Back
 

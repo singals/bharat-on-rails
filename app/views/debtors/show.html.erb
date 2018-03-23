@@ -35,7 +35,7 @@
                 <th>Amount</th>
                 <th>Interest</th>
               </tr>
-              <%= render @debtor.deposits %>
+              <%= render @deposits %>
             </table>
           </td>
         </div>
@@ -48,7 +48,7 @@
                 <th>Interest</th>
                 <th colspan="1"></th>
               </tr>
-              <%= render @debtor.sales %>
+              <%= render @sales %>
             </table>
           </td>
         </div>
@@ -78,6 +78,12 @@
     <%= form.label :amount %>
     <%= form.text_field :amount, id: :deposit_amount %>
   </div>
+
+  <div class="field">
+    <%= form.label :mark_settled %>
+    <%= form.check_box :mark_settled %>
+  </div>
+<%# TODO: post P&L entries for interest and discount(if any) %>
 
   <div class="actions">
     <%= form.submit %>

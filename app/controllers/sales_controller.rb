@@ -39,8 +39,8 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    # TODO: initialize is_settled to false for Credit sales
     @sale = Sale.new(sale_params)
+    @sale.is_settled = false if @sale.nature == 'CREDIT'
     respond_to do |format|
       if save_new_sales_order(@sale)
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }

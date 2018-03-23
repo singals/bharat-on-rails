@@ -43,6 +43,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'pry', '~> 0.10.4'
+  gem 'pry-byebug', '~> 3.6'
+  gem 'pry-rails', '~> 0.3.4'
   # Static code analysis
   gem 'rubocop', '~> 0.53.0'
 end

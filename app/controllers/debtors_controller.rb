@@ -12,8 +12,8 @@ class DebtorsController < ApplicationController
   # GET /debtors/1
   # GET /debtors/1.json
   def show
-    @deposits = Deposit.where(debtor_id: @debtor.id)
-    @sales = Sale.where(debtor_id: @debtor.id)
+    @deposits = Deposit.where(debtor_id: @debtor.id, is_settled: [false, nil])
+    @sales = Sale.where(debtor_id: @debtor.id, is_settled: [false, nil])
   end
 
   # GET /debtors/new

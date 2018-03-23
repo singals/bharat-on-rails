@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320070345) do # rubocop:disable Metrics/BlockLength
+ActiveRecord::Schema.define(version: 20180323192318) do # rubocop:disable Metrics/BlockLength
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 20180320070345) do # rubocop:disable Metric
     t.bigint "debtor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "mark_settled"
+    t.boolean "is_settled"
     t.index ["debtor_id"], name: "index_deposits_on_debtor_id"
   end
 
