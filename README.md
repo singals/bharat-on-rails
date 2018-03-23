@@ -29,14 +29,4 @@ This projects uses the following:
 
 
 ### TODO (functionalities)
-1. Implement Profit and Loss Account (partialy implemented, allow entering expenses, view for an year etc)
-2. Add UI tests using Capybara or something else.
-3. Improve test coverage, add End-End tests
-4. Use JQuery-UI to make the UI look better
-5. Add name to Sale model
-6. Add nature of transaction (Cash/Credit) for Purchase and maintain account
-7. Implement Accounts functionality for debtors and creditors.
-8. Option to print bill
-9. Authentication + Authorization
-10. Localisation
-11. Payment support for Credit & Debit Cards, UPI
+Moved to [Trello](https://trello.com/b/4TpMkaB4/bharat-story-board)
