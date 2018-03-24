@@ -14,7 +14,7 @@ module Bharat
     config.load_defaults 5.1
 
     # Remove/comment the below 2 lines if you dont need local time else set it to your local time zone
-    config.time_zone = 'New Delhi'
+    # config.time_zone = 'New Delhi'
     # config.active_record.default_timezone = :local
 
     # Settings in config/environments/* take precedence over those specified here.
