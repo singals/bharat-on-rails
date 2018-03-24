@@ -49,7 +49,7 @@ jobs:
       - run:
           name: rubocop
           command: |
-            rubocop -d
+            rubocop
 
       # collect reports
       - store_test_results:
