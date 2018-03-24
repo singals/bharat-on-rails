@@ -50,7 +50,7 @@ jobs:
       - run:
           name: rubocop
           command: |
-            rubocop
+            bundle exec rubocop
 
       # collect reports
       - store_test_results:
