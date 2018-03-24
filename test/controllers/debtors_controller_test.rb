@@ -57,20 +57,22 @@ class DebtorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should be able to get a debtor by id" do
-    today = Date.today
-    today_str = today.strftime("%d-%m-%Y")
+    today = Date.today.strftime("%d-%m-%Y")
+    yesterday = Date.yesterday.strftime("%d-%m-%Y")
 
     get('/debtors/980190962')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    improvised_actual_response = actual_response.gsub(today_str, 'xxx')
+    improvised_actual_response = actual_response.gsub(today, 'xxx')
+    improvised_actual_response = improvised_actual_response.gsub(yesterday, 'xxx')
     expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/debtor_one_get_form.txt')).to_text
     assert_equal expected_response, improvised_actual_response, 'response does not match'
 
     get('/debtors/298486374')
     assert_response :success
     actual_response = Loofah.fragment(response.body).to_text
-    improvised_actual_response = actual_response.gsub(today_str, 'xxx')
+    improvised_actual_response = actual_response.gsub(today, 'xxx')
+    improvised_actual_response = improvised_actual_response.gsub(yesterday, 'xxx')
     expected_response = Loofah.fragment(File.read(Rails.root + 'test/static/response/debtor_two_get_form.txt')).to_text
     assert_equal expected_response, improvised_actual_response, 'response does not match'
   end
