@@ -9,7 +9,7 @@ AllCops:
     - 'vendor/**/*'
     - 'spec/fixtures/**/*'
     - 'tmp/**/*'
-    - 'vendor/**/*
+    - 'vendor/**/*'
   TargetRubyVersion: 2.5
 
 Naming/PredicateName:
