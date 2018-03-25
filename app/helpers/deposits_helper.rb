@@ -31,7 +31,7 @@ module DepositsHelper
       pnl -= sale.total_amount
     end
 
-    return unless pnl.zero?
+    return if pnl.zero?
 
     ProfitAndLossAccount.transaction do
       latest_pl_record = ProfitAndLossAccount.last
