@@ -31,7 +31,7 @@ class PurchasesHelperTest < ActiveSupport::TestCase
 
     @actual_article2 = Article.find(@article2.id)
     assert_equal 150, @actual_article2.availabe_units # 50+100
-    assert_equal 186.666666666667, @actual_article2.cost # (50*200 + 180*100)/150
+    assert_equal 186.66666666666666, @actual_article2.cost # (50*200 + 180*100)/150
     assert_equal 'Article 2', @actual_article2.name
     assert_equal '10 KG', @actual_article2.package_quantity
     assert_equal 260, @actual_article2.mrp

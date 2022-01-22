@@ -7,9 +7,9 @@
 ### Prerequisites
 This projects uses the following:
 
-* Ruby (version 2.5.0)
+* Ruby (version 3.0.3)
 
-* Rails (version 5.1.2)
+* Rails (version 7.0.1)
 
 * Postgres (version 10)
 
@@ -17,10 +17,10 @@ This projects uses the following:
 
 * Docker Compose (version 1.14.0)
 
-### Running the application
+### Running the application using docker
 * Install Docker
 
-* How to run the app
+* How to run the app using docker
 
     From the root directory of the project, execute
     > docker-compose build
@@ -29,6 +29,10 @@ This projects uses the following:
 
     Now the application shall be accessible at port 3000 (unless changed) 
 
+### Running the application natively
+* Ensure postgres is running
+* `bin/setup`
+* `bin/rails s`
 
 ### TODO (functionalities)
 Moved to [Trello](https://trello.com/b/4TpMkaB4/bharat-story-board)
