@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.float "mrp"
     t.float "cost"
     t.boolean "is_active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "debtors", force: :cascade do |t|
@@ -31,16 +31,16 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.string "village"
     t.string "phone"
     t.boolean "is_active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "deposits", force: :cascade do |t|
     t.string "nature"
     t.float "amount"
     t.bigint "debtor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "mark_settled"
     t.boolean "is_settled"
     t.index ["debtor_id"], name: "index_deposits_on_debtor_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.float "amount"
     t.float "current_balance"
     t.string "financial_year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["financial_year"], name: "index_profit_and_loss_accounts_on_financial_year"
   end
 
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.integer "quantity"
     t.float "price"
     t.float "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_purchase_items_on_article_id"
     t.index ["purchase_id"], name: "index_purchase_items_on_purchase_id"
   end
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.string "phone"
     t.integer "invoice_number"
     t.float "total_cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sale_items", force: :cascade do |t|
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.integer "quantity"
     t.float "price"
     t.float "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_sale_items_on_article_id"
     t.index ["sale_id"], name: "index_sale_items_on_sale_id"
   end
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 2018_03_23_192318) do
     t.string "village"
     t.string "phone"
     t.float "total_amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_settled"
     t.index ["debtor_id"], name: "index_sales_on_debtor_id"
   end
