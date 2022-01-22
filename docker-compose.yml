@@ -2,7 +2,7 @@ version: '2.0'
 
 services:
   db:
-    image: postgres:10
+    image: postgres:13-alpine
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:

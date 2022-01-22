@@ -11,11 +11,11 @@ This projects uses the following:
 
 * Rails (version 7.0.1)
 
-* Postgres (version 10)
+* Postgres (version 13)
 
-* Docker (version 17.06.2-ce-mac27 (19124))
+* Docker (version 20.10.6 (370c289))
 
-* Docker Compose (version 1.14.0)
+* Docker Compose (version 1.29.1)
 
 ### Running the application using docker
 * Install Docker
@@ -31,6 +31,7 @@ This projects uses the following:
 
 ### Running the application natively
 * Ensure postgres is running
+* add `127.0.0.1       db` to `/etc/hosts`
 * `bin/setup`
 * `bin/rails s`
 
