@@ -1,5 +1,5 @@
 services:
-  - postgres:10
+  - postgres:13-alpine
 
 variables:
   POSTGRES_DB: bharat_test
