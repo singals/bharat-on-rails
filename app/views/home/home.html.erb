@@ -1,1 +1,48 @@
-Hello World
+<div style="width: 100%;">
+  <div id="navBar" style="width: 100%;">
+    <a href="/sales/new">Record Sale</a>
+    <a href="/debtors">View Debtors</a>
+    <a href="/deposits/new">Record deposit</a>
+    <a href="/purchases/new">Record purchase</a>
+    <a href="/profit_and_loss_accounts/new">Add expense</a>
+  </div>
+  <br/>
+  <div style="float:left; width: 48%; border-style: solid;">
+    <h4>Cash sales</h4>
+    <% @cash_sales.each do |cash_sale| %>
+      <div style="float:left; width: 70%;border-top-width: 1px;border-top-style: solid;">
+        <% cash_sale.sale_items.each do |sale_item|%>
+          <%= sale_item.article.name %>@<%= sale_item.price %> x <%= sale_item.quantity %>;
+        <% end -%>
+      </div>
+      <div style="float:right; width: 30%">
+      <%= cash_sale.total_amount %>
+      </div>
+      <br/>
+    <% end -%>
+  </div>
+  <div style="float:right; width: 48%; border-style: solid;">
+    <h4>Credit sales</h4>
+    <% @credit_sales.each do |credit_sale| %>
+
+      <div style="float:left; width: 15%">
+        <%= credit_sale.total_amount %>
+      </div>
+      <div style="float:left; width: 15%">
+        <%= credit_sale.debtor.name %>-<%= credit_sale.debtor.village %>
+      </div>
+      <div style="float:right; width: 70%;border-top-width: 1px;border-top-style: solid;">
+        <% credit_sale.sale_items.each do |sale_item|%>
+          <%= sale_item.article.name %>@<%= sale_item.price %> x <%= sale_item.quantity %>;
+        <% end -%>
+        <%= link_to 'View', credit_sale %>
+      </div>
+
+      <br/>
+    <% end -%>
+
+
+
+
+  </div>
+</div>

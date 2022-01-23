@@ -1,0 +1,26 @@
+
+
+    Bharat
+
+    Record Sale
+    View Debtors
+    Record deposit
+    Record purchase
+    Add expense
+
+
+Cash sales
+
+          Article 1@230.0 x 2;
+
+      460.0
+
+Credit sales
+
+        235.0
+
+        John Doe-village one
+
+          Article 1@235.0 x 1;
+        View
+
