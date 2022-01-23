@@ -54,6 +54,7 @@ class DepositsController < ApplicationController
   # PATCH/PUT /deposits/1.json
   def update
     respond_to do |format|
+      #TODO: allow for mark_settled=false && is_settled=false only
       if @deposit.update(deposit_params)
         format.html { redirect_to @deposit, notice: 'Deposit was successfully updated.' }
         format.json { render :show, status: :ok, location: @deposit }
@@ -68,6 +69,7 @@ class DepositsController < ApplicationController
   # DELETE /deposits/1.json
   def destroy
     @deposit.destroy
+    #TODO: allow for mark_settled=false && is_settled=false only
     respond_to do |format|
       format.html { redirect_to deposits_url, notice: 'Deposit was successfully destroyed.' }
       format.json { head :no_content }

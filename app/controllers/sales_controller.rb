@@ -55,6 +55,7 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.json
   def destroy
+    # TODO: soft delete instead of hard delete
     # TODO: adjust stock and P&L account
     # TODO adjust debtor's account for CREDIT sale
     @sale.destroy

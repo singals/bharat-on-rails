@@ -23,7 +23,8 @@ module SalesHelper
 
   def update_pl(profit, sale)
     latest_pl_record = ProfitAndLossAccount.last
-    new_balance = latest_pl_record.current_balance + profit
+    existing_balance = latest_pl_record==nil ? 0 : latest_pl_record.current_balance
+    new_balance = existing_balance + profit
     ProfitAndLossAccount.new(description: 'From sale ' + sale.id.to_s, amount: profit,
                              current_balance: new_balance, financial_year: generate_current_financial_year)
   end
